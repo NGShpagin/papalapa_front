@@ -1,0 +1,62 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(255, 253, 251, 0.5);
+    border-radius: 10px;
+    width: 1240px;
+    justify-self: center;
+}
+
+.button {
+    height: 80px;
+    background-color: red;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    color: var(--main-dark-brown);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px 0;
+}
+
+.link:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+.logo {
+    font-family: "Love Ya Like A Sister", cursive;
+    color: var(--main-dark-brown);
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: normal;
+    font-style: normal;
+}
+
+.wb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-white);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+}
+
+.wb:hover {
+    cursor: pointer;
+}

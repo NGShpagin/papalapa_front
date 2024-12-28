@@ -1,0 +1,114 @@
+.footer {
+    background-color: rgba(85, 68, 60, 0.33)
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1240px;
+    height: 358px;
+    padding: 20px 0;
+    justify-self: center;
+}
+
+.footer-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    font-family: "Love Ya Like A Sister", cursive;
+    color: #000000;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 35px;
+    font-style: normal;
+    text-transform: lowercase;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.link {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    text-decoration: none;
+    width: fit-content;
+    height: 20px;
+}
+
+.link:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+.footer-foot {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.socials-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contacts-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 70%;
+    letter-spacing: -0.05em;
+    color: #000000;
+    margin: 0;
+}
+
+.item {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.03em;
+    color: #000000;
+    margin: 0;
+    width: fit-content;
+    height: 20px;
+    text-decoration: none;
+}
+
+.item:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}

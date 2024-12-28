@@ -1,0 +1,20 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.header {
+    /*position: sticky;*/
+    margin-top: 15px;
+    /*top: 15px;*/
+    margin-left: calc((100% - 1440px) / 2);
+    margin-right: calc((100% - 1440px) / 2);
+    z-index: 1000;
+}
+.content {
+    margin-top: -90px;
+    /*max-width: 1440px;*/
+    /*padding-right: 100px;*/
+    /*padding-left: 100px;*/
+}

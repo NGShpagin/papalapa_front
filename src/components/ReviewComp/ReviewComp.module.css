@@ -1,0 +1,90 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--main-light-brown);
+    width: 400px;
+    height: 310px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.left-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: min-content;
+}
+
+.image {
+    border-radius: 10px;
+    width: 150px;
+    height: 160px;
+    overflow: hidden;
+    background-color: #D9D9D9;
+}
+
+.image img {
+    max-width: 100%;
+    /*width: 100%;*/
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reviewer {
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+    align-items: center;
+}
+
+.reviewer p {
+    margin-bottom: 0;
+    color: var(--main-light-brown);
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-title {
+    margin-bottom: 0;
+    color: var(--main-light-brown);
+}
+
+.item-name {
+    margin-bottom: 0;
+    color: var(--main-brown);
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.text {
+    color: var(--main-dark-brown);
+    height: 100%;
+    overflow: auto;
+}
+
+/*.text:hover {*/
+/*    cursor: ns-resize;*/
+/*}*/

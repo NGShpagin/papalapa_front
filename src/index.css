@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --main-dark-brown: #2D2421;
+    --main-brown: #5A4841;
+    --main-white: #FFFDFB;
+    --main-light-brown: rgba(88, 75, 69, 0.5);
+    --main-flutter-light-brown: rgba(85, 68, 60, 0.33);
+}
+
+/*body {*/
+/*    font-family: 'Open Sans', sans-serif;*/
+/*}*/
+
+h1 {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    color: var(--main-dark-brown);
+}
+
+h2 {
+    margin: 0 !important;
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 32px !important;
+    line-height: 100% !important;
+    letter-spacing: -0.05em;
+    color: var(--main-dark-brown);
+}
+
+.main-text {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.text-button-medium {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.05em;
+    color: #000000;
+}
+
+.text-button {
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.03em;
+    color: #000000;
+}

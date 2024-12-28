@@ -1,0 +1,59 @@
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.reviews-text {
+    display: flex;
+    align-self: center;
+}
+
+.reviews-block_controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.reviews-arrows {
+    display: flex;
+    flex-direction: row;
+}
+
+.arrow {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    padding: 13px;
+}
+
+/*.arrow:hover {*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.arrow:hover path {*/
+/*    fill-opacity: 0.4;*/
+/*}*/
+
+.active path {
+    fill-opacity: 0.6;
+}
+
+.active:hover {
+    cursor: pointer;
+}
+
+.active:hover path {
+    fill-opacity: 0.4;
+}
+
+.reviews-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.reviews-text {
+    color: var(--main-dark-brown);
+}
