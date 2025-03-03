@@ -12,32 +12,26 @@ export function ItemCategory(props: ItemCategoryProps) {
     const [activeColorImage, setActiveColorImage] = useState<Image | undefined>(mainImage ? mainImage : (activeColor?.imageList ? activeColor.imageList[0] : undefined));
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const itemCycles = Array.from({length: activeColor?.imageList?.length || 1}, (_, index) => {
-        return <div onMouseOver={() => changeImage(index)} key={index} className={cn(styles['item-cycle'], {
+        return <div onMouseOver={() => changeActiveImage(index)} key={index} className={cn(styles['item-cycle'], {
             [styles['item-cycle__active']]: activeIndex === index,
         })}/>
     });
 
     useEffect(() => {
         setActiveColorImage(activeColor?.imageList?.find(i => i.isMain));
-        if (activeColor?.imageList && activeColorImage) {
-            console.log(activeColor);
-            console.log(activeColorImage)
-            setActiveIndex(activeColor?.imageList?.findIndex(i => i.id === activeColorImage.id));
-            console.log("activeIndex: " + activeIndex);
-        }
     }, [activeColor]);
 
-    const changeImage = (index: number) => {
-        console.log("index: " + index)
+    useEffect(() => {
+        if (activeColor?.imageList && activeColorImage)
+            setActiveIndex(activeColor?.imageList?.findIndex(i => i.id === activeColorImage.id));
+    }, [activeColor?.imageList, activeColorImage]);
+
+    const changeActiveImage = (index: number) => {
         if (activeColor?.imageList) {
-            console.log("index - 1: " + index)
             setActiveColorImage(activeColor?.imageList[index])
-            console.log("activeColorImage: " + activeColorImage)
             setActiveIndex(index);
-            console.log("activeIndex: " + activeIndex)
         }
     }
-
 
     return (
         <div className={styles['item-card']}>
