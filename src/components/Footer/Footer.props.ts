@@ -1,3 +1,3 @@
 import {HTMLAttributes} from "react";
 
-export interface FooterProps extends HTMLAttributes<HTMLDivElement> {}
+export type FooterProps = HTMLAttributes<HTMLDivElement>

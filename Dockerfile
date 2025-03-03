@@ -1,10 +1,16 @@
-FROM node:13 as build
-WORKDIR /papalapa/front
-COPY ./papalapa/front/package.json ./package.json
+FROM node:20-alpine as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package*.json .
 RUN npm install
+#RUN npm run build
 COPY . .
-WORKDIR /papalapa
-RUN npm i
-WORKDIR /papalapa/front
-ARG env=prod
-RUN PUBLIC_URL=http://:3001 npm run build
+RUN npm run build
+#CMD ["npm", "start"]
+#CMD [ "npm", "run", "preview" ]
+
+# Production Stage
+FROM nginx:stable-alpine AS production
+COPY --from=build /app /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+CMD ["nginx", "-g", "daemon off;"]

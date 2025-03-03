@@ -1,8 +1,7 @@
 import styles from './Footer.module.css';
-import {FooterProps} from "./Footer.props.ts";
 import cn from "classnames";
 
-export function Footer(props: FooterProps) {
+export function Footer() {
     return (
         <footer id='contacts' className={styles['footer']}>
             <div className={styles['container']}>
