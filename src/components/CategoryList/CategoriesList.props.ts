@@ -1,4 +1,4 @@
-import {ItemCategory} from "../../interfaces/ItemCategory.ts";
+import {ItemCategory} from "../../interfaces/ItemCategory";
 
 export interface CategoriesListProps {
     items: ItemCategory[];

@@ -1,4 +1,4 @@
-import {CheckboxCircleProps} from "./CheckboxCircle.props.ts";
+import {CheckboxCircleProps} from "./CheckboxCircle.props";
 import cn from "classnames";
 import styles from "./CheckboxCircle.module.css";
 import {forwardRef, useImperativeHandle, useRef, useState} from "react";

@@ -1,9 +1,9 @@
 import styles from './ItemCategory.module.css';
-import {ItemCategoryProps} from "./ItemCategory.props.ts";
+import {ItemCategoryProps} from "./ItemCategory.props";
 import cn from "classnames";
 import {useEffect, useState} from "react";
-import {Item} from "../../interfaces/Item.ts";
-import {Image} from "../../interfaces/Image.ts";
+import {Item} from "../../interfaces/Item";
+import {Image} from "../../interfaces/Image";
 
 export function ItemCategory(props: ItemCategoryProps) {
 

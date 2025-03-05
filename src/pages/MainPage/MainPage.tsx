@@ -1,20 +1,20 @@
-import styles from './Main.module.css';
+import styles from './MainPage.module.css';
 import {Link} from "react-router-dom";
-import CarouselBoot from "../../components/Carousel/CarouselBoot.tsx";
-import {ItemCard} from "../../components/ItemCard/ItemCard.tsx";
+import CarouselBoot from "../../components/Carousel/CarouselBoot";
+import {ItemCard} from "../../components/ItemCard/ItemCard";
 import {useEffect, useRef, useState} from "react";
 import cn from "classnames";
 import axios, {AxiosError} from 'axios';
-import {PREFIX} from "../../helpers/API.ts";
-import {ItemCategory} from "../../interfaces/ItemCategory.ts";
-import {CategoriesList} from "../../components/CategoryList/CategoriesList.tsx";
-import {CheckboxCircle} from "../../components/CheckboxCircle/CheckboxCircle.tsx";
-import {ReviewList} from "../../components/ReviewList/ReviewList.tsx";
-import {Review} from "../../interfaces/Review.ts";
-import {Footer} from "../../components/Footer/Footer.tsx";
-import {SelectItem} from "../../interfaces/SelectItem.ts";
+import {PREFIX} from "../../helpers/API";
+import {ItemCategory} from "../../interfaces/ItemCategory";
+import {CategoriesList} from "../../components/CategoryList/CategoriesList";
+import {CheckboxCircle} from "../../components/CheckboxCircle/CheckboxCircle";
+import {ReviewList} from "../../components/ReviewList/ReviewList";
+import {Review} from "../../interfaces/Review";
+import {Footer} from "../../components/Footer/Footer";
+import {SelectItem} from "../../interfaces/SelectItem";
 
-export function Main() {
+export function MainPage() {
 
     const [active, setActive] = useState<boolean>(false);
     const itemCard = useRef(null);

@@ -1,4 +1,4 @@
-import {Image} from "./Image.ts";
+import {Image} from "./Image";
 
 export interface Item {
     id: number;

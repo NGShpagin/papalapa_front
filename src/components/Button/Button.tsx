@@ -1,4 +1,4 @@
-import {ButtonProps} from "./Button.props.ts";
+import {ButtonProps} from "./Button.props";
 import cn from "classnames";
 import styles from "./Button.module.css";
 

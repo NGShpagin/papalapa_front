@@ -1,3 +1,3 @@
-import {Review} from "../../interfaces/Review.ts";
+import {Review} from "../../interfaces/Review";
 
 export type ReviewCompProps = Review

@@ -3,15 +3,15 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import './index.css'
 import React from 'react';
-import {Layout} from "./layout/Layout/Layout.tsx";
-import {store} from "./store/store.tsx";
-import {Main} from "./pages/Main/Main.tsx";
-import {About} from "./pages/About/About.tsx";
-import {Catalog} from "./pages/Catalog/Catalog.tsx";
-import {Certificates} from "./pages/Cerificates/Certificates.tsx";
-import {Contacts} from "./pages/Contacts/Contacts.tsx";
+import {Layout} from "./layout/Layout/Layout";
+import {store} from "./store/store";
+import {MainPage} from "./pages/MainPage/MainPage";
+import {About} from "./pages/About/About";
+import {Catalog} from "./pages/Catalog/Catalog";
+import {Certificates} from "./pages/Cerificates/Certificates";
+import {Contacts} from "./pages/Contacts/Contacts";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Item} from "./pages/Item/Item.tsx";
+import {Item} from "./pages/Item/Item";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Main/>
+                element: <MainPage/>
             },
             {
                 path: '/about',

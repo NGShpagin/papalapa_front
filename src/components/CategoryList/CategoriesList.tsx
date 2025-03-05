@@ -1,5 +1,5 @@
-import {CategoriesListProps} from "./CategoriesList.props.ts";
-import {ItemCategory} from "../ItemCategory/ItemCategory.tsx";
+import {CategoriesListProps} from "./CategoriesList.props";
+import {ItemCategory} from "../ItemCategory/ItemCategory";
 import styles from './CategoriesList.module.css'
 
 export function CategoriesList({items}: CategoriesListProps) {

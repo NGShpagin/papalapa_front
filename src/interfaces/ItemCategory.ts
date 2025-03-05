@@ -1,4 +1,4 @@
-import {Item} from "./Item.ts";
+import {Item} from "./Item";
 
 export interface ItemCategory {
     id: number;

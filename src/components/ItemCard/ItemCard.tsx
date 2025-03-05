@@ -1,4 +1,4 @@
-import {ItemCardProps} from "./ItemCard.props.ts";
+import {ItemCardProps} from "./ItemCard.props";
 import styles from './ItemCard.module.css';
 import cn from "classnames";
 import {forwardRef} from "react";

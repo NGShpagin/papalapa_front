@@ -1,7 +1,7 @@
-import {ReviewListProps} from "./ReviewList.props.ts";
+import {ReviewListProps} from "./ReviewList.props";
 import styles from "./ReviewList.module.css";
-import {ReviewComp} from "../ReviewComp/ReviewComp.tsx";
-import {Review} from "../../interfaces/Review.ts"
+import {ReviewComp} from "../ReviewComp/ReviewComp";
+import {Review} from "../../interfaces/Review"
 import cn from "classnames";
 import {useEffect, useState} from "react";
 

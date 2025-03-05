@@ -1,5 +1,3 @@
-// import {Image} from "../../interfaces/Image.ts";
-
 export interface ItemCardProps{
     id: number;
     title: string;

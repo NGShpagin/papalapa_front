@@ -8,21 +8,23 @@ import {globSync} from 'glob'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: path.resolve(__dirname, '/'),
     plugins: [
         react(),
         libInjectCss(),
         dts({
             tsconfigPath: 'tsconfig.app.json',
         }),],
-    // server: {
-    //   watch: {
-    //     usePolling: true,
-    //   },
-    //   host: true, // needed for the Docker Container port mapping to work
-    //   strictPort: true, // not necessary
-    //   port: 80 // you can replace this port with any port
-    // },
+    server: {
+        watch: {
+            usePolling: true,
+        },
+        host: true, // needed for the Docker Container port mapping to work
+        strictPort: true, // not necessary
+        port: 80 // you can replace this port with any port
+    },
     build: {
+        manifest: true,
         lib: {
             entry: resolve(__dirname, 'src/main.tsx'),
             formats: ['es'],
@@ -30,7 +32,7 @@ export default defineConfig({
         rollupOptions: {
             external: ['react', 'react-dom', 'react/jsx-runtime'],
             input: Object.fromEntries(
-                globSync(['src/components/**/index.tsx', 'src/main.tsx']).map((file) => {
+                globSync(['src/components/**/*.tsx', 'src/main.tsx']).map((file) => {
                     // This remove `src/` as well as the file extension from each
                     // file, so e.g. src/nested/foo.js becomes nested/foo
                     const entryName = path.relative(
@@ -53,5 +55,5 @@ export default defineConfig({
                 },
             },
         },
-    },
+    }
 })

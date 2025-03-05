@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import {Button} from "../Button/Button.tsx";
+import {Button} from "../Button/Button";
 import styles from './Carousel.module.css'
 
 function CarouselBoot() {
