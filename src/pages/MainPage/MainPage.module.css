@@ -192,7 +192,7 @@
     width: 610px;
     min-width: 610px;
     height: 469px;
-    background-image: url("/src/assets/about-image.png");
+    background-image: url("https://storage.yandexcloud.net/papalapa-storage/website/about-image.png");
     background-size: cover;
     background-position-y: -120%;
 }
@@ -225,7 +225,7 @@
 
 .image_block {
     height: 560px;
-    background-image: url('/src/assets/image-block.png');
+    background-image: url('https://storage.yandexcloud.net/papalapa-storage/website/image-block.png');
     background-size: cover;
     background-position: center;
 }

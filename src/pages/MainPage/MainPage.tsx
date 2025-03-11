@@ -33,21 +33,21 @@ export function MainPage() {
             title: 'Плед с мехом',
             price: 1200,
             wbUrl: 'https://www.wildberries.ru/catalog/197562165/detail.aspx?targetUrl=GP',
-            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01G_0.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEn-07vUByJktM8tdsWrHE%2F20241221%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241221T203458Z&X-Amz-Expires=2592000&X-Amz-Signature=293F31C29ECEEFE17F153A2A266A96EDF430A8B1E91E2966C5B16B7ABCCBC7CD&X-Amz-SignedHeaders=host'
+            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01G_0.jpeg'
         },
         {
             id: 2,
             title: 'Плед с мехом',
             price: 1450,
             wbUrl: 'https://www.wildberries.ru/catalog/180833812/detail.aspx?targetUrl=GP',
-            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01B_0.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEn-07vUByJktM8tdsWrHE%2F20241221%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241221T203051Z&X-Amz-Expires=2592000&X-Amz-Signature=72FA1B5310AA5EC9EF97EB38136D0A69A34421D09BB18738AA085A124FB7C145&X-Amz-SignedHeaders=host'
+            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01B_0.jpeg'
         },
         {
             id: 3,
             title: 'Плед с мехом',
             price: 2450,
             wbUrl: 'https://www.wildberries.ru/catalog/180833814/detail.aspx?targetUrl=GP',
-            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01C_0.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEn-07vUByJktM8tdsWrHE%2F20241221%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241221T202834Z&X-Amz-Expires=2592000&X-Amz-Signature=BCE1191BEE801BA40C691F9E08A052DD5E98B70684DC156B4DE6640C5AF966A5&X-Amz-SignedHeaders=host'
+            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01C_0.jpeg'
         }
     ]
 
@@ -56,8 +56,14 @@ export function MainPage() {
     }
 
     useEffect(() => {
-        getItemCategories();
-        getReviews();
+        getItemCategories().then(res => {
+            if (res != null) {
+                setItemCategories(res.filter((item) => item.colorList && item.colorList.length > 0));
+            }
+        });
+        getReviews().then(res => {
+            if (res != null) setReviews(res);
+        });
     }, [reviews.length]);
 
     const activateItem = (id: number) => {
@@ -86,29 +92,26 @@ export function MainPage() {
         try {
             setIsCategoriesLoading(true);
             const {data} = await axios.get<ItemCategory[]>(`${PREFIX}/categories`);
-            setItemCategories(data.filter((item) => item.colorList && item.colorList.length > 0));
             setIsCategoriesLoading(false);
+            return data;
         } catch (e) {
             if (e instanceof AxiosError) {
                 setError(e.message);
             }
             setIsCategoriesLoading(false);
-            return;
+            return null;
         }
     };
 
     const getReviews = async () => {
         try {
-            // setIsReviewsLoading(true);
             const {data} = await axios.get<Review[]>(`${PREFIX}/reviews`);
-            setReviews(data);
-            // setIsReviewsLoading(false);
+            return data;
         } catch (e) {
             if (e instanceof AxiosError) {
                 setError(e.message);
             }
-            // setIsReviewsLoading(false);
-            return;
+            return null;
         }
     };
 
@@ -132,7 +135,7 @@ export function MainPage() {
                 </div>
             </div>
             <div className={styles['select-block']}>
-                <img className={styles['select-block__image']} src="/src/assets/select-block.png" alt=""/>
+                <img className={styles['select-block__image']} src="https://storage.yandexcloud.net/papalapa-storage/website/select-block.png" alt=""/>
                 <CheckboxCircle ref={circleButton_1} className={cn(styles['button-1'])}
                                 onClick={() => activateItem(0)} element={() => getEl()}/>
                 <CheckboxCircle ref={circleButton_2} className={cn(styles['button-2'])}

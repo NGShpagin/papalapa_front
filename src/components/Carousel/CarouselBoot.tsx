@@ -13,12 +13,12 @@ function CarouselBoot() {
                     <div className={styles['image_box']}>
                         <img
                             className="d-block w-50 h-100"
-                            src="/src/assets/carousel-image-1-1.png"
+                            src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-1-1.png"
                             alt="First slide"
                         />
                         <img
                             className="d-block w-50 h-100"
-                            src="/src/assets/carousel-image-1-2.png"
+                            src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-1-2.png"
                             alt="First slide"
                         />
                     </div>
@@ -30,7 +30,7 @@ function CarouselBoot() {
                     <div className={styles['image_box']}>
                         <img
                             className="d-block w-100 h-100"
-                            src="/src/assets/carousel-image-2.png"
+                            src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-2.png"
                             alt="Second slide"
                         />
                     </div>
@@ -44,13 +44,13 @@ function CarouselBoot() {
                     <div className={styles['image_box']}>
                         <img
                             className="d-block w-50 h-100"
-                            src="/src/assets/carousel-image-3-1.png"
-                            alt="First slide"
+                            src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-3-1.png"
+                            alt="Third slide"
                         />
                         <img
                             className="d-block w-50 h-100"
-                            src="/src/assets/carousel-image-3-2.png"
-                            alt="First slide"
+                            src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-3-2.png"
+                            alt="Third slide"
                         />
                     </div>
                     <Carousel.Caption>
@@ -63,8 +63,8 @@ function CarouselBoot() {
                     <div className={styles['image_box']}>
                         <img
                             className="d-block w-100 h-100"
-                            src="/src/assets/carousel-image-4.png"
-                            alt="Second slide"
+                            src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-4.png"
+                            alt="Fourth slide"
                         />
                     </div>
                     <Carousel.Caption>

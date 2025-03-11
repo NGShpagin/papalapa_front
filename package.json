@@ -1,10 +1,6 @@
 {
   "name": "papalapa_front",
   "type": "module",
-  "homepage": ".",
-  "files": [
-    "dist"
-  ],
   "exports": "./dist/main.js",
   "module": "./dist/main.js",
   "types": "./dist/main.d.ts",
@@ -16,6 +12,7 @@
     "lint:fix": "eslint . --ext ts,tsx --fix"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "1.7.8",
     "bootstrap": "^5.3.3",
@@ -32,6 +29,7 @@
     "@types/node": "^22.13.9",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
@@ -40,9 +38,10 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "prettier": "^3.5.3",
+    "sass": "^1.85.1",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1",
+    "vite": "^5.4.14",
     "vite-plugin-dts": "^4.5.3",
     "vite-plugin-lib-inject-css": "^2.2.1"
   }

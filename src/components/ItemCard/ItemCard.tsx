@@ -6,10 +6,6 @@ import {forwardRef} from "react";
 export const ItemCard
     = forwardRef<HTMLDivElement, ItemCardProps>(function ItemCard({...props}, ref) {
 
-    // const mainImage = props.imageList?.find(i => i.isMain);
-    // const imageUrl = (props.imageList && mainImage != undefined) ?
-    //     mainImage.imageUrl : "src/assets/pled_1.png";
-
     return (
         <div className={styles['item-card']} ref={ref}>
             <div className={styles['content']}>
