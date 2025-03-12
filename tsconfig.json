@@ -1,41 +1,89 @@
 {
-  "files": [],
-  "include": ["src"],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.node.json"
-    }
+  "include": [
+    "src/**/*"
   ],
   "compilerOptions": {
-    "jsx": "react"
-  }
-  //  "compilerOptions": {
-//    "target": "es5",
-//    "lib": [
-//      "dom",
-//      "dom.iterable",
-//      "esnext"
-//    ],
-//    "composite": true,
-//    "declaration": true,
-//    "declarationMap": true,
-//    "skipLibCheck": true,
-//    "esModuleInterop": true,
-//    "allowSyntheticDefaultImports": true,
+    "rootDir": ".",
+    "outDir": "dist",
+    "target": "ESNext",
+    "module": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+
+//    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+  },
+//  "compilerOptions": {
+//    //===== Совместимость с внешними инструментами =====
+//    // Помогает инструментам, компилирующим .ts в .d.ts, делая обязательными аннотации типов
+//    // возвращаемых экспортируемыми функциями значений и т.д.
+////    "isolatedDeclarations": true,
+//    //===== Результат: JavaScript =====
+//    "target": "ESNext",
+//    "module": "preserve",
+//
+//    // устанавливает "moduleResolution"
+//    // Разрешаем импорт пустых модулей
+////    "noUncheckedSideEffectImports": true,
+////    "sourceMap": true,
+//
+//    //===== Проверка типов =====
 //    "strict": true,
-//    "strictPropertyInitialization": false,
-//    "forceConsistentCasingInFileNames": true,
+//    // активирует несколько полезных настроек
+//    "exactOptionalPropertyTypes": true,
 //    "noFallthroughCasesInSwitch": true,
-//    "module": "esnext",
-//    "moduleResolution": "node",
-//    "resolveJsonModule": true,
-//    "isolatedModules": true,
+//    "noImplicitOverride": true,
+//    "noImplicitReturns": true,
+//    "noPropertyAccessFromIndexSignature": true,
+//    "noUncheckedIndexedAccess": true,
+//    //===== Совместимость с внешними инструментами =====
+//    // Помогает инструментам, компилирующим .ts в .js, делая
+//    // модификаторы `type` обязательными для импорта типа и т.д.
+//    //    "verbatimModuleSyntax": true,
+//
+//    //===== Другие настройки =====
+//    // Разрешаем импорт файлов JSON
+//    //    "resolveJsonModule": true,
+//
+//    //===== Результат: определения =====
+//    "declaration": true,
+//    // файлы .d.ts
+//    // "Go to definition" переходит к исходнику TS source и т.д.
+//    "declarationMap": true,
+//    // файлы .d.ts.map
+//
+//    //===== Другое =====
+//    "lib": [
+//      "ES2024",
+//      "DOM",
+//      "DOM.Iterable"
+//    ],
+//    "removeComments": true,
+//    "allowImportingTsExtensions": true,
 //    "noEmit": true,
-//    "jsx": "react-jsx",
-//    "rootDir": ".",
-//    "allowJs": true,
+//    // Требуется только при компиляции в JS
+////    "rewriteRelativeImportExtensions": true,
+//    "jsx": "react",
 //  }
 }

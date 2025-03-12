@@ -1,4 +1,4 @@
-import {CategoriesListProps} from "./CategoriesList.props";
+import type {CategoriesListProps} from "./CategoriesList.props";
 import {ItemCategory} from "../ItemCategory/ItemCategory";
 import styles from './CategoriesList.module.css'
 

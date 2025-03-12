@@ -1,11 +1,11 @@
 import styles from './ItemCategory.module.css';
 import {ItemCategoryProps} from "./ItemCategory.props";
 import cn from "classnames";
-import {useEffect, useState} from "react";
+import {JSX, useEffect, useState} from "react";
 import {Item} from "../../interfaces/Item";
 import {Image} from "../../interfaces/Image";
 
-export function ItemCategory(props: ItemCategoryProps) {
+export function ItemCategory(props: ItemCategoryProps): JSX.Element {
 
     const [activeColor, setActiveColor] = useState<Item | undefined>(props.colorList ? props.colorList[0] : undefined);
     const mainImage = activeColor?.imageList?.find(i => i.isMain);
@@ -43,15 +43,15 @@ export function ItemCategory(props: ItemCategoryProps) {
             <div className={styles['description']}>
                 <div className={cn(styles['title'], 'main-text')}>{props.title}</div>
                 <div className={styles['color-box']}>
-                    {props.colorList?.map(item => {
-                        const color = props.colorList?.find(color => color.id === item.id);
+                    {props.colorList?.map((item: { id: number | undefined; }) => {
+                        const color = props.colorList?.find((color: { id: number | undefined; }) => color.id === item.id);
                         if (!color) {
                             return;
                         }
-                        return (<div className={cn(styles['color'], {
+                        return <div className={cn(styles['color'], {
                             [styles['active-color']]: activeColor?.id === item.id
                         })} style={{backgroundColor: color.colorValue}}
-                                     onClick={() => setActiveColor(color)}/>)
+                                     onClick={() => setActiveColor(color)}/>
                     })}
                 </div>
                 <div className={cn(styles['price'], 'text-button-medium')}>{activeColor?.price}&nbsp;

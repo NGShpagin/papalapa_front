@@ -67,7 +67,8 @@ export function MainPage() {
     }, [reviews.length]);
 
     const activateItem = (id: number) => {
-        setActiveItem(items[id])
+        const item = items.find(item => item.id === id)
+        if (item != undefined) setActiveItem(item)
         setActive(true)
         if (!isEventListenerRunning) {
             document.addEventListener('click', outsideClickListener)
@@ -203,7 +204,6 @@ export function MainPage() {
                                     d="M23.3536 15.3536C23.5488 15.1583 23.5488 14.8417 23.3536 14.6464L20.1716 11.4645C19.9763 11.2692 19.6597 11.2692 19.4645 11.4645C19.2692 11.6597 19.2692 11.9763 19.4645 12.1716L22.2929 15L19.4645 17.8284C19.2692 18.0237 19.2692 18.3403 19.4645 18.5355C19.6597 18.7308 19.9763 18.7308 20.1716 18.5355L23.3536 15.3536ZM7 15.5H23V14.5H7V15.5Z"
                                     fill="#584B45" fill-opacity="0.5"/>
                             </svg>
-
                         </Link>
                     </div>
                 </div>
