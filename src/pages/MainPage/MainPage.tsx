@@ -13,6 +13,7 @@ import {ReviewList} from "../../components/ReviewList/ReviewList";
 import {Review} from "../../interfaces/Review";
 import {Footer} from "../../components/Footer/Footer";
 import {SelectItem} from "../../interfaces/SelectItem";
+import {WbItem} from "../../interfaces/WbItem.ts";
 
 export function MainPage() {
 
@@ -22,7 +23,7 @@ export function MainPage() {
     const circleButton_2 = useRef(null);
     const circleButton_3 = useRef(null);
     const [itemCategories, setItemCategories] = useState<ItemCategory[]>([]);
-    const [error, setError] = useState<string>();
+    // const [error, setError] = useState<string>();
     const [isCategoriesLoading, setIsCategoriesLoading] = useState<boolean>(false);
     const [reviews, setReviews] = useState<Review[]>([]);
     const [activeItem, setActiveItem] = useState<SelectItem | null>(null);
@@ -31,23 +32,26 @@ export function MainPage() {
         {
             id: 1,
             title: 'Плед с мехом',
-            price: 1200,
+            price: null,
             wbUrl: 'https://www.wildberries.ru/catalog/197562165/detail.aspx?targetUrl=GP',
-            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01G_0.jpeg'
+            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01G_0.jpeg',
+            nmID: 197562165
         },
         {
             id: 2,
             title: 'Плед с мехом',
-            price: 1450,
+            price: null,
             wbUrl: 'https://www.wildberries.ru/catalog/180833812/detail.aspx?targetUrl=GP',
-            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01B_0.jpeg'
+            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01B_0.jpeg',
+            nmID: 180833812
         },
         {
             id: 3,
             title: 'Плед с мехом',
-            price: 2450,
+            price: null,
             wbUrl: 'https://www.wildberries.ru/catalog/180833814/detail.aspx?targetUrl=GP',
-            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01C_0.jpeg'
+            image: 'https://storage.yandexcloud.net/papalapa-storage/PL01C_0.jpeg',
+            nmID: 180833814
         }
     ]
 
@@ -66,10 +70,14 @@ export function MainPage() {
         });
     }, [reviews.length]);
 
-    const activateItem = (id: number) => {
+    const activateItem = async (id: number) => {
         const item = items.find(item => item.id === id)
-        if (item != undefined) setActiveItem(item)
-        setActive(true)
+        if (item != undefined) {
+            const wbItem = await getSelectedItem(item.nmID)
+            if (wbItem != null) item.price = wbItem.sizes[0].discountedPrice;
+            setActiveItem(item)
+            setActive(true)
+        }
         if (!isEventListenerRunning) {
             document.addEventListener('click', outsideClickListener)
             setIsEventListenerRunning(true);
@@ -92,12 +100,13 @@ export function MainPage() {
     const getItemCategories = async () => {
         try {
             setIsCategoriesLoading(true);
-            const {data} = await axios.get<ItemCategory[]>(`${PREFIX}/categories`);
+            const {data} = await axios.get<ItemCategory[]>(`${PREFIX}/products/wb-items`);
             setIsCategoriesLoading(false);
             return data;
         } catch (e) {
             if (e instanceof AxiosError) {
-                setError(e.message);
+                // setError(e.message);
+                return null;
             }
             setIsCategoriesLoading(false);
             return null;
@@ -110,11 +119,24 @@ export function MainPage() {
             return data;
         } catch (e) {
             if (e instanceof AxiosError) {
-                setError(e.message);
+                // setError(e.message);
+                return null;
             }
             return null;
         }
     };
+
+    const getSelectedItem = async (filterNmId: number) => {
+        try {
+            const {data} = await axios.get<WbItem>(`${PREFIX}/products/wb-items?filterNmID=${filterNmId}`);
+            return data;
+        } catch (e) {
+            if (e instanceof AxiosError) {
+                return null;
+            }
+            return null;
+        }
+    }
 
     return (
         <>
@@ -130,7 +152,7 @@ export function MainPage() {
                     {/*</Link>*/}
                 </div>
                 {!isCategoriesLoading && itemCategories.length > 0 && <CategoriesList items={itemCategories}/>}
-                {error && <div>{error}</div>}
+                {/*{error && <div>{error}</div>}*/}
                 <div className={styles['hits-description']}>
                     Тепло в деталях, забота в каждой ниточке
                 </div>
@@ -138,11 +160,11 @@ export function MainPage() {
             <div className={styles['select-block']}>
                 <img className={styles['select-block__image']} src="https://storage.yandexcloud.net/papalapa-storage/website/select-block.png" alt=""/>
                 <CheckboxCircle ref={circleButton_1} className={cn(styles['button-1'])}
-                                onClick={() => activateItem(0)} element={() => getEl()}/>
-                <CheckboxCircle ref={circleButton_2} className={cn(styles['button-2'])}
                                 onClick={() => activateItem(1)} element={() => getEl()}/>
-                <CheckboxCircle ref={circleButton_3} className={cn(styles['button-3'])}
+                <CheckboxCircle ref={circleButton_2} className={cn(styles['button-2'])}
                                 onClick={() => activateItem(2)} element={() => getEl()}/>
+                <CheckboxCircle ref={circleButton_3} className={cn(styles['button-3'])}
+                                onClick={() => activateItem(3)} element={() => getEl()}/>
                 {active && activeItem != null &&
                     <div id={'itemCard'} ref={itemCard}  className={styles['card']}>
                         <ItemCard id={activeItem.id} title={activeItem.title} price={activeItem.price}

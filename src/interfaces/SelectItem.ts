@@ -1,7 +1,8 @@
 export interface SelectItem {
     id: number,
     title: string,
-    price: number,
+    price: number | null,
     wbUrl: string,
-    image: string
+    image: string,
+    nmID: number
 }
