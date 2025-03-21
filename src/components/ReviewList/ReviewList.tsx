@@ -4,31 +4,46 @@ import {ReviewComp} from "../ReviewComp/ReviewComp";
 import {Review} from "../../interfaces/Review"
 import cn from "classnames";
 import {useEffect, useState} from "react";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 export function ReviewList({header, reviews}: ReviewListProps) {
 
     const [currentReviews, setCurrentReviews] = useState<Review[]>([]);
     const [reviewPage, setReviewPage] = useState<number>(1);
     const [maxPage, setMaxPage] = useState<number>(0);
+    const isMobileDevice = useMediaQuery("(480px <= width < 1280px)");
+    const isDesktop = useMediaQuery("(1280px <= width)");
 
     useEffect(() => {
-        setMaxPage(reviews.length / 3);
-        const firstPage: Review[] = []
-        if (reviews.length > 1) firstPage.push(reviews[0])
-        if (reviews.length > 2) firstPage.push(reviews[1])
-        if (reviews.length > 3) firstPage.push(reviews[2])
-        setCurrentReviews(firstPage)
-    }, [maxPage, reviews, reviews.length]);
+        if (isMobileDevice) {
+            setMaxPage(reviews.length)
+            const firstPage: Review[] = []
+            if (reviews.length > 1) firstPage.push(reviews[0])
+            setCurrentReviews(firstPage)
+        } else if (isDesktop) {
+            setMaxPage(reviews.length / 3)
+            const firstPage: Review[] = []
+            if (reviews.length > 1) firstPage.push(reviews[0])
+            if (reviews.length > 2) firstPage.push(reviews[1])
+            if (reviews.length > 3) firstPage.push(reviews[2])
+            setCurrentReviews(firstPage)
+        }
+    }, [isDesktop, isMobileDevice, maxPage, reviews, reviews.length]);
 
     const getReviewPage = (page: number) => {
         if (page === 0) return;
         if (page > maxPage) return;
         setReviewPage(page);
         const newReviews = [];
-        if (reviews.length > 3 * page - 2) newReviews.push(reviews[3 * page - 3])
-        if (reviews.length > 3 * page - 1) newReviews.push(reviews[3 * page - 2])
-        if (reviews.length >= 3 * page) newReviews.push(reviews[3 * page - 1])
-        setCurrentReviews(newReviews)
+        if (isMobileDevice) {
+            if (reviews.length > page) newReviews.push(reviews[page-1])
+        } else if (isDesktop) {
+            if (reviews.length > 3 * page - 2) newReviews.push(reviews[3 * page - 3])
+            if (reviews.length > 3 * page - 1) newReviews.push(reviews[3 * page - 2])
+            if (reviews.length >= 3 * page) newReviews.push(reviews[3 * page - 1])
+        }
+        if (newReviews.length > 0) setCurrentReviews(newReviews)
+        else return;
     }
 
     return <>

@@ -1,3 +1,15 @@
+@media (480px <= width < 1280px) {
+    .card {
+        width: 100%;
+    }
+}
+
+@media (1280px <= width) {
+    .card {
+        width: 400px;
+    }
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -5,7 +17,7 @@
     padding: 20px;
     border-radius: 10px;
     border: 1px solid var(--main-light-brown);
-    width: 400px;
+    /*width: 400px;*/
     height: 310px;
 }
 

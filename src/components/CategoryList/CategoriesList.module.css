@@ -1,7 +1,19 @@
+@media (480px <= width < 1280px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (1280px <= width) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
 .wrapper {
     height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
     row-gap: 40px;
     column-gap: 20px;
     flex-direction: row;

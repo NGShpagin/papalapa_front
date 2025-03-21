@@ -14,6 +14,7 @@ import {Review} from "../../interfaces/Review";
 import {Footer} from "../../components/Footer/Footer";
 import {SelectItem} from "../../interfaces/SelectItem";
 import {WbItem} from "../../interfaces/WbItem.ts";
+import {useMediaQuery} from "@uidotdev/usehooks";
 
 export function MainPage() {
 
@@ -28,6 +29,8 @@ export function MainPage() {
     const [reviews, setReviews] = useState<Review[]>([]);
     const [activeItem, setActiveItem] = useState<SelectItem | null>(null);
     const [isEventListenerRunning, setIsEventListenerRunning] = useState<boolean>(false);
+    // const isMobileDevice = useMediaQuery("(480px <= width < 1280px)");
+    const isDesktop = useMediaQuery("(1280px <= width)");
     const items: SelectItem[] = [
         {
             id: 1,
@@ -143,7 +146,7 @@ export function MainPage() {
             <div className={styles['carousel-block']}>
                 <CarouselBoot/>
             </div>
-            <div id="catalog" className={styles['hits-block']}>
+            <div id="catalog" className={cn(styles['hits-block'], 'main-grid')}>
                 <div className={styles['hits-header']}>
                     <h2 className={cn(styles['hits-text'])}>Каталог</h2>
                     {/*<Link className={styles['see-all']} to={'/catalog'}>*/}
@@ -153,25 +156,25 @@ export function MainPage() {
                 </div>
                 {!isCategoriesLoading && itemCategories.length > 0 && <CategoriesList items={itemCategories}/>}
                 {/*{error && <div>{error}</div>}*/}
-                <div className={styles['hits-description']}>
+                {isDesktop && <div className={styles['hits-description']}>
                     Тепло в деталях, забота в каждой ниточке
-                </div>
+                </div>}
             </div>
             <div className={styles['select-block']}>
                 <img className={styles['select-block__image']} src="https://storage.yandexcloud.net/papalapa-storage/website/select-block.png" alt=""/>
-                <CheckboxCircle ref={circleButton_1} className={cn(styles['button-1'])}
-                                onClick={() => activateItem(1)} element={() => getEl()}/>
-                <CheckboxCircle ref={circleButton_2} className={cn(styles['button-2'])}
-                                onClick={() => activateItem(2)} element={() => getEl()}/>
-                <CheckboxCircle ref={circleButton_3} className={cn(styles['button-3'])}
-                                onClick={() => activateItem(3)} element={() => getEl()}/>
+                {isDesktop && <CheckboxCircle ref={circleButton_1} className={cn(styles['button-1'])}
+                                onClick={() => activateItem(1)} element={() => getEl()}/>}
+                {isDesktop && <CheckboxCircle ref={circleButton_2} className={cn(styles['button-2'])}
+                                onClick={() => activateItem(2)} element={() => getEl()}/>}
+                {isDesktop && <CheckboxCircle ref={circleButton_3} className={cn(styles['button-3'])}
+                                onClick={() => activateItem(3)} element={() => getEl()}/>}
                 {active && activeItem != null &&
                     <div id={'itemCard'} ref={itemCard}  className={styles['card']}>
                         <ItemCard id={activeItem.id} title={activeItem.title} price={activeItem.price}
                                   image={activeItem.image} wbUrl={activeItem.wbUrl}/>
                     </div>}
             </div>
-            <div id="about-us" className={styles['about-block']}>
+            <div id="about-us" className={cn(styles['about-block'], 'main-grid')}>
                 <div className={styles['about-block__container']}>
                     <div className={cn(styles['about-block__brick'], styles['first-brick'])}>
                         <div className={styles['about-block__header']}>
@@ -231,7 +234,7 @@ export function MainPage() {
                 </div>
             </div>
             <div className={styles['image_block']}></div>
-            <div id={'reviews'} className={cn(styles['reviews-block'], 'placeholder-glow')}>
+            <div id={'reviews'} className={cn(styles['reviews-block'], 'placeholder-glow', 'main-grid')}>
                 <ReviewList reviews={reviews} header={"Отзывы"}/>
             </div>
             <Footer/>

@@ -1,3 +1,9 @@
+@media (480px <= width < 1280px) {
+    .wrapper {
+        justify-content: center;
+    }
+}
+
 .wrapper {
     height: 100%;
     display: flex;

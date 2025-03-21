@@ -1,3 +1,19 @@
+@media (480px <= width < 1280px) {
+    .container {
+        /*padding-left: calc((100% - 480px) / 2);*/
+        /*padding-right: calc((100% - 480px) / 2);*/
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
+@media (1280px < width) {
+    .container {
+        padding-left: calc((100% - 1280px) / 2);
+        padding-right: calc((100% - 1280px) / 2);
+    }
+}
+
 .footer {
     background-color: rgba(85, 68, 60, 0.33)
 }
@@ -6,16 +22,29 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 1240px;
-    height: 358px;
-    padding: 20px 0;
+    /*width: 100%;*/
+    padding: 20px;
+    /*padding-top: 20px;*/
+    /*padding-bottom: 20px;*/
     justify-self: center;
+    @media (480px <= width < 1280px) {
+        gap: 40px;
+    }
+    @media (1280px < width) {
+        height: 358px;
+    }
 }
 
 .footer-head {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @media (480px <= width < 1280px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    @media (1280px < width) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
     width: 100%;
 }
 
@@ -28,6 +57,9 @@
     line-height: 35px;
     font-style: normal;
     text-transform: lowercase;
+    @media (480px <= width < 1280px) {
+        display: none;
+    }
 }
 
 .menu {
@@ -55,32 +87,59 @@
 
 .footer-foot {
     display: flex;
-    flex-direction: row;
-    gap: 200px;
+    @media (480px <= width < 1280px) {
+        flex-direction: column;
+        gap: 50px;
+    }
+    @media (1280px < width) {
+        flex-direction: row;
+        gap: 200px;
+    }
+    width: 100%;
+    align-items: center;
 }
 
 .socials {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @media (480px <= width < 1280px) {
+        width: 100%;
+    }
 }
 
 .socials-items {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    @media (480px <= width < 1280px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    @media (1280px < width) {
+        flex-direction: column;
+        gap: 10px;
+    }
+
 }
 
 .contacts {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @media (480px <= width < 1280px) {
+        width: 100%;
+    }
 }
 
 .contacts-items {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    @media (480px <= width < 1280px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    @media (1280px < width) {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 .heading {
