@@ -14,8 +14,8 @@
     z-index: 1000;
 }
 .content {
+    align-items: center;
     margin-top: -90px;
-
     /*max-width: 1440px;*/
     /*padding-right: 100px;*/
     /*padding-left: 100px;*/
