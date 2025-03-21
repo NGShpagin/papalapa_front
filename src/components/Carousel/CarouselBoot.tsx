@@ -1,14 +1,16 @@
 import Carousel from 'react-bootstrap/Carousel';
 import {Button} from "../Button/Button";
 import styles from './Carousel.module.css'
+import {useMediaQuery} from "@uidotdev/usehooks";
 
 function CarouselBoot() {
+    const isMobileDevice = useMediaQuery("(480px <= width < 1280px)");
 
     return (
         <div className={styles['carousel-block']}>
             {/*<h3 className={styles['text']}>С заботой о самых близких</h3>*/}
             <Button className={styles['button']}>Купить</Button>
-            <Carousel controls={true} indicators={true} fade={true} className={styles['carousel']}>
+            <Carousel controls={true} indicators={true} fade={true} slide={isMobileDevice} className={styles['carousel']}>
                 <Carousel.Item interval={3000} className={styles['carousel-item']}>
                     <div className={styles['image_box']}>
                         <img

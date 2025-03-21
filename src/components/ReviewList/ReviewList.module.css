@@ -1,4 +1,4 @@
-@media (480px <= width < 1280px) {
+@media (380px <= width < 1280px) {
     .wrapper {
         justify-content: center;
     }

@@ -1,4 +1,4 @@
-@media (480px <= width < 1280px) {
+@media (380px <= width < 1280px) {
     .about-block__footer {
         flex-direction: column;
         gap: 80px;
@@ -138,15 +138,25 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    @media (380px <= width < 1280px) {
+        flex-direction: column;
+        padding-top: 30px;
+    }
 }
 
 .about-block__brick {
-    width: 295px;
-    padding-top: 90px;
-    padding-bottom: 90px;
+    @media (380px <= width < 1280px) {
+        width: 100%;
+        gap: 10px;
+    }
+    @media (1280px <= width) {
+        width: 295px;
+        padding-top: 90px;
+        padding-bottom: 90px;
+        gap: 120px;
+    }
     display: flex;
     flex-direction: column;
-    gap: 120px;
 }
 
 .about-block__brick-p {
@@ -154,17 +164,23 @@
 }
 
 .first-brick {
-    margin-right: 20px;
+    @media (1280px <= width) {
+        margin-right: 20px;
+    }
 }
 
 .last-brick {
-    margin-left: 20px;
-    width: 277px;
+    @media (1280px <= width) {
+        margin-left: 20px;
+        width: 277px;
+    }
 }
 
 .third-brick {
-    margin-left: 20px;
-    margin-right: 20px;
+    @media (1280px <= width) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
 .about-block__header {
@@ -210,6 +226,9 @@
 .about-block__hr {
     border: 1px solid var(--main-light-brown);
     margin: 0;
+    @media (380px <= width < 1280px) {
+        display: none;
+    }
 }
 
 .about-block__footer {
@@ -219,12 +238,19 @@
 }
 
 .about-block__image {
-    width: 610px;
-    min-width: 610px;
     height: 469px;
     background-image: url("https://storage.yandexcloud.net/papalapa-storage/website/about-image.png");
-    background-size: cover;
-    background-position-y: -120%;
+    @media (380px <= width < 1280px) {
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+    @media (1280px <= width) {
+        width: 610px;
+        min-width: 610px;
+        background-position-y: -120%;
+        background-size: cover;
+    }
 }
 
 .about-block__description {
@@ -253,6 +279,7 @@
 
 .image_block {
     height: 560px;
+    width: 100%;
     background-image: url('https://storage.yandexcloud.net/papalapa-storage/website/image-block.png');
     background-size: cover;
     background-position: center;

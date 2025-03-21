@@ -1,9 +1,9 @@
-@media (480px <= width < 1280px) {
+@media (380px <= width < 1280px) {
     .container {
         /*padding-left: calc((100% - 480px) / 2);*/
         /*padding-right: calc((100% - 480px) / 2);*/
-        padding-left: 20%;
-        padding-right: 20%;
+        /*padding-left: 5%;*/
+        /*padding-right: 5%;*/
     }
 }
 
@@ -23,11 +23,11 @@
     flex-direction: column;
     justify-content: space-between;
     /*width: 100%;*/
-    padding: 20px;
-    /*padding-top: 20px;*/
-    /*padding-bottom: 20px;*/
+    /*padding: 20px;*/
+    padding-top: 20px;
+    padding-bottom: 20px;
     justify-self: center;
-    @media (480px <= width < 1280px) {
+    @media (380px <= width < 1280px) {
         gap: 40px;
     }
     @media (1280px < width) {
@@ -37,7 +37,7 @@
 
 .footer-head {
     display: flex;
-    @media (480px <= width < 1280px) {
+    @media (380px <= width < 1280px) {
         flex-direction: column;
         align-items: center;
     }
@@ -57,7 +57,7 @@
     line-height: 35px;
     font-style: normal;
     text-transform: lowercase;
-    @media (480px <= width < 1280px) {
+    @media (380px <= width < 1280px) {
         display: none;
     }
 }
@@ -87,7 +87,7 @@
 
 .footer-foot {
     display: flex;
-    @media (480px <= width < 1280px) {
+    @media (380px <= width < 1280px) {
         flex-direction: column;
         gap: 50px;
     }
@@ -103,14 +103,14 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    @media (480px <= width < 1280px) {
+    @media (380px <= width < 1280px) {
         width: 100%;
     }
 }
 
 .socials-items {
     display: flex;
-    @media (480px <= width < 1280px) {
+    @media (380px <= width < 1280px) {
         flex-direction: row;
         justify-content: space-between;
     }
@@ -125,19 +125,18 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    @media (480px <= width < 1280px) {
+    @media (380px <= width < 1280px) {
         width: 100%;
     }
 }
 
 .contacts-items {
     display: flex;
-    @media (480px <= width < 1280px) {
-        flex-direction: row;
-        justify-content: space-between;
+    flex-direction: column;
+    @media (380px <= width < 1280px) {
+        gap: 10px;
     }
     @media (1280px < width) {
-        flex-direction: column;
         gap: 10px;
     }
 }

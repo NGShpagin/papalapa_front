@@ -1,6 +1,6 @@
-@media (480px <= width < 1280px) {
+@media (380px <= width < 1280px) {
     .main-grid {
-        width: 460px;
+        width: 380px;
     }
 }
 
@@ -22,10 +22,6 @@
     --main-light-brown: rgba(88, 75, 69, 0.5);
     --main-flutter-light-brown: rgba(85, 68, 60, 0.33);
 }
-
-/*body {*/
-/*    font-family: 'Open Sans', sans-serif;*/
-/*}*/
 
 h1 {
     font-family: 'Inter', serif;

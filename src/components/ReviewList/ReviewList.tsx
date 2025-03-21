@@ -11,7 +11,7 @@ export function ReviewList({header, reviews}: ReviewListProps) {
     const [currentReviews, setCurrentReviews] = useState<Review[]>([]);
     const [reviewPage, setReviewPage] = useState<number>(1);
     const [maxPage, setMaxPage] = useState<number>(0);
-    const isMobileDevice = useMediaQuery("(480px <= width < 1280px)");
+    const isMobileDevice = useMediaQuery("(380px <= width < 1280px)");
     const isDesktop = useMediaQuery("(1280px <= width)");
 
     useEffect(() => {
