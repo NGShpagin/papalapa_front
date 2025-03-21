@@ -10,10 +10,6 @@
     filter: brightness(0.8);
 }
 
-.image_box {
-    height: 800px;
-}
-
 .text {
     position: absolute;
     top: 5%;
@@ -63,7 +59,13 @@
 }
 
 .image_box {
+    height: 800px;
     position: relative;
     display: flex;
     flex-direction: row;
 }
+
+/*.image_box img {*/
+/*    width: auto !important;*/
+/*    height: 100%;*/
+/*}*/

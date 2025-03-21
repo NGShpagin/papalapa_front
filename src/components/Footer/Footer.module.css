@@ -1,9 +1,6 @@
 @media (380px <= width < 1280px) {
     .container {
-        /*padding-left: calc((100% - 480px) / 2);*/
-        /*padding-right: calc((100% - 480px) / 2);*/
-        /*padding-left: 5%;*/
-        /*padding-right: 5%;*/
+        align-items: center;
     }
 }
 

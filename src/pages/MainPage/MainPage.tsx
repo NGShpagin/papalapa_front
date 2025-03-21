@@ -24,13 +24,17 @@ export function MainPage() {
     const circleButton_2 = useRef(null);
     const circleButton_3 = useRef(null);
     const [itemCategories, setItemCategories] = useState<ItemCategory[]>([]);
-    // const [error, setError] = useState<string>();
+    const [catalogError, setCatalogError] = useState<string | null>(null);
+    const [reviewError, setReviewError] = useState<string | null>(null);
     const [isCategoriesLoading, setIsCategoriesLoading] = useState<boolean>(false);
+    const [isReviewsLoading, setIsReviewsLoading] = useState<boolean>(false);
     const [reviews, setReviews] = useState<Review[]>([]);
     const [activeItem, setActiveItem] = useState<SelectItem | null>(null);
     const [isEventListenerRunning, setIsEventListenerRunning] = useState<boolean>(false);
-    // const isMobileDevice = useMediaQuery("(480px <= width < 1280px)");
-    const isDesktop = useMediaQuery("(1280px <= width)");
+    const isMobileDevice = useMediaQuery("(390px <= width < 768px)");
+    const isDesktop_1280 = useMediaQuery("(768px <= width < 1280px)");
+    const isDesktop_1440 = useMediaQuery("(1280px <= width < 1440px)");
+    const isDesktop_1920 = useMediaQuery("(1440px <= width)");
     const items: SelectItem[] = [
         {
             id: 1,
@@ -71,7 +75,7 @@ export function MainPage() {
         getReviews().then(res => {
             if (res != null) setReviews(res);
         });
-    }, [reviews.length]);
+    }, [reviews.length,]);
 
     const activateItem = async (id: number) => {
         const item = items.find(item => item.id === id)
@@ -87,7 +91,7 @@ export function MainPage() {
         }
     }
 
-    const outsideClickListener = function(e: MouseEvent) {
+    const outsideClickListener = function (e: MouseEvent) {
         const container = document.getElementById('itemCard');
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
@@ -104,25 +108,30 @@ export function MainPage() {
         try {
             setIsCategoriesLoading(true);
             const {data} = await axios.get<ItemCategory[]>(`${PREFIX}/products/wb-items`);
+            if (catalogError != null) setCatalogError(null);
             setIsCategoriesLoading(false);
             return data;
         } catch (e) {
+            setIsCategoriesLoading(false);
+            setCatalogError("Catalog Error")
             if (e instanceof AxiosError) {
-                // setError(e.message);
                 return null;
             }
-            setIsCategoriesLoading(false);
             return null;
         }
     };
 
     const getReviews = async () => {
         try {
+            setIsReviewsLoading(true);
             const {data} = await axios.get<Review[]>(`${PREFIX}/reviews`);
+            if (reviewError != null) setReviewError(null);
+            setIsReviewsLoading(false);
             return data;
         } catch (e) {
+            setIsReviewsLoading(false);
+            setReviewError("Reviews Error")
             if (e instanceof AxiosError) {
-                // setError(e.message);
                 return null;
             }
             return null;
@@ -149,27 +158,31 @@ export function MainPage() {
             <div id="catalog" className={cn(styles['hits-block'], 'main-grid')}>
                 <div className={styles['hits-header']}>
                     <h2 className={cn(styles['hits-text'])}>Каталог</h2>
-                    {/*<Link className={styles['see-all']} to={'/catalog'}>*/}
-                    {/*    <div className={styles['see-all__text']}>Смотерть все</div>*/}
-                    {/*    <img src="/src/assets/arrow-icon.svg" alt="arrow-icon"/>*/}
-                    {/*</Link>*/}
                 </div>
-                {!isCategoriesLoading && itemCategories.length > 0 && <CategoriesList items={itemCategories}/>}
-                {/*{error && <div>{error}</div>}*/}
-                {isDesktop && <div className={styles['hits-description']}>
+                {!isCategoriesLoading ? <CategoriesList items={itemCategories}/> :
+                    <div className="d-flex justify-content-center">
+                        <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>}
+                {catalogError != null && <div>{catalogError}</div>}
+                {!isMobileDevice && !isCategoriesLoading && <div className={styles['hits-description']}>
                     Тепло в деталях, забота в каждой ниточке
                 </div>}
             </div>
             <div className={styles['select-block']}>
-                <img className={styles['select-block__image']} src="https://storage.yandexcloud.net/papalapa-storage/website/select-block.png" alt=""/>
-                {isDesktop && <CheckboxCircle ref={circleButton_1} className={cn(styles['button-1'])}
-                                onClick={() => activateItem(1)} element={() => getEl()}/>}
-                {isDesktop && <CheckboxCircle ref={circleButton_2} className={cn(styles['button-2'])}
-                                onClick={() => activateItem(2)} element={() => getEl()}/>}
-                {isDesktop && <CheckboxCircle ref={circleButton_3} className={cn(styles['button-3'])}
-                                onClick={() => activateItem(3)} element={() => getEl()}/>}
+                {isMobileDevice && <img className={styles['select-block__image']} src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_960.jpeg' alt=""/>}
+                {isDesktop_1280 && <img className={styles['select-block__image']} src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1280.jpeg' alt=""/>}
+                {isDesktop_1440 && <img className={styles['select-block__image']} src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1440.jpeg' alt=""/>}
+                {isDesktop_1920 && <img className={styles['select-block__image']} src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1920.jpeg' alt=""/>}
+                {!isMobileDevice && <CheckboxCircle ref={circleButton_1} className={cn(styles['button-1'])}
+                                              onClick={() => activateItem(1)} element={() => getEl()}/>}
+                {!isMobileDevice && <CheckboxCircle ref={circleButton_2} className={cn(styles['button-2'])}
+                                              onClick={() => activateItem(2)} element={() => getEl()}/>}
+                {!isMobileDevice && <CheckboxCircle ref={circleButton_3} className={cn(styles['button-3'])}
+                                              onClick={() => activateItem(3)} element={() => getEl()}/>}
                 {active && activeItem != null &&
-                    <div id={'itemCard'} ref={itemCard}  className={styles['card']}>
+                    <div id={'itemCard'} ref={itemCard} className={styles['card']}>
                         <ItemCard id={activeItem.id} title={activeItem.title} price={activeItem.price}
                                   image={activeItem.image} wbUrl={activeItem.wbUrl}/>
                     </div>}
@@ -233,9 +246,21 @@ export function MainPage() {
                     </div>
                 </div>
             </div>
-            <div className={styles['image_block']}></div>
+            <div className={styles['image_block']}>
+                {isMobileDevice && <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_768.jpeg' alt=""/>}
+                {isDesktop_1280 && <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1280.jpeg' alt=""/>}
+                {isDesktop_1440 && <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1440.jpeg' alt=""/>}
+                {isDesktop_1920 && <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1920.jpeg' alt=""/>}
+            </div>
             <div id={'reviews'} className={cn(styles['reviews-block'], 'placeholder-glow', 'main-grid')}>
-                <ReviewList reviews={reviews} header={"Отзывы"}/>
+                {isReviewsLoading && <h2 className={cn(styles['hits-text'])}>Отзывы</h2>}
+                {!isReviewsLoading ? <ReviewList reviews={reviews} header={"Отзывы"}/> :
+                    <div className="d-flex justify-content-center">
+                        <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>}
+                {reviewError != null && <div>{reviewError}</div>}
             </div>
             <Footer/>
         </>

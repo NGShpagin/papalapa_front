@@ -1,31 +1,13 @@
-@media (380px <= width < 1280px) {
-    .about-block__footer {
-        flex-direction: column;
-        gap: 80px;
-    }
-
-    .about-block__description {
-        gap: 40px;
-    }
-
-    .about-block__description__header {
-        gap: 40px;
-    }
+@media (390px <= width < 768px) {
 }
 
-@media (1280px <= width) {
-    .about-block__footer {
-        flex-direction: row;
-        gap: 125px;
-    }
+@media (768px <= width < 1280px) {
+}
 
-    .about-block__description {
-        justify-content: space-between;
-    }
+@media (1280px <= width < 1440px)  {
+}
 
-    .about-block__description__header {
-        gap: 65px;
-    }
+@media (1440px <= width) {
 }
 
 .hits-block {
@@ -82,12 +64,11 @@
 
 .select-block {
     position: relative;
-    height: 700px;
+    /*height: 700px;*/
 }
 
 .select-block__image {
     width: 100%;
-    height: 100%;
 }
 
 .button-1 {
@@ -233,8 +214,14 @@
 
 .about-block__footer {
     display: flex;
-    /*flex-direction: row;*/
-    /*gap: 125px;*/
+    @media (390px <= width < 768px) {
+        flex-direction: column;
+        gap: 80px;
+    }
+    @media (1280px <= width) {
+        flex-direction: row;
+        gap: 125px;
+    }
 }
 
 .about-block__image {
@@ -256,11 +243,23 @@
 .about-block__description {
     display: flex;
     flex-direction: column;
+    @media (390px <= width < 768px) {
+        gap: 40px;
+    }
+    @media (1280px <= width) {
+        justify-content: space-between;
+    }
 }
 
 .about-block__description__header {
     display: flex;
     flex-direction: column;
+    @media (390px <= width < 768px) {
+        gap: 40px;
+    }
+    @media (1280px <= width) {
+        gap: 65px;
+    }
 }
 
 .about-block__link {
@@ -278,11 +277,11 @@
 }
 
 .image_block {
-    height: 560px;
     width: 100%;
-    background-image: url('https://storage.yandexcloud.net/papalapa-storage/website/image-block.png');
-    background-size: cover;
-    background-position: center;
+}
+
+.image_block img {
+    width: 100%;
 }
 
 .reviews-block {
