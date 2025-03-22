@@ -355,8 +355,9 @@
     padding-top: 80px;
     padding-bottom: 80px;
     width: 100%;
-    /*@media (390px <= width < 768px) {*/
-    /*    padding-left: calc((100% - 390px) / 2);*/
-    /*    padding-right: calc((100% - 390px) / 2);*/
-    /*}*/
+    @media (1280px <= width < 1440px) {
+        /*width: 1280px;*/
+        padding-left: calc((100% - 1280px) / 2);
+        padding-right: calc((100% - 1280px) / 2);
+    }
 }

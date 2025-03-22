@@ -187,7 +187,7 @@ export function MainPage() {
                                   image={activeItem.image} wbUrl={activeItem.wbUrl}/>
                     </div>}
             </div>
-            <div id="about-us" className={cn(styles['about-block'])}>
+            <div id="about-us" className={cn(styles['about-block'], 'main-grid')}>
                 <div className={cn(styles['about-block__container'], 'main-grid')}>
                     <div className={cn(styles['about-block__brick'], styles['first-brick'])}>
                         <div className={styles['about-block__header']}>

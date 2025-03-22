@@ -6,8 +6,11 @@
     @media (390px <= width < 768px) {
         width: 100%;
     }
-    @media (768px <= width < 960px) {
+    @media (768px <= width < 1280px) {
         justify-content: left;
+    }
+    @media (1280px <= width) {
+        justify-content: flex-start;
     }
 }
 

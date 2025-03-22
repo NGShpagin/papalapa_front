@@ -10,19 +10,15 @@
     @media (390px <= width < 768px) {
         width: 90vw;
     }
-
     @media (768px <= width < 960px) {
         width: 768px;
     }
-
     @media (960px <= width < 1280px) {
         width: 960px;
     }
-
     @media (1280px <= width < 1440px) {
         width: 1280px;
     }
-
     @media (1440px <= width) {
         width: 1440px;
     }

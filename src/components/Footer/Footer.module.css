@@ -1,6 +1,6 @@
 .footer {
     background-color: rgba(85, 68, 60, 0.33);
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .container {
@@ -10,28 +10,26 @@
     padding-top: 20px;
     padding-bottom: 20px;
     justify-self: center;
+    width: 90vw;
     @media (390px <= width < 768px) {
         gap: 40px;
-        width: 90vw;
     }
     @media (768px < width) {
         height: 358px;
-        padding-left: calc((100% - 1280px) / 2);
-        padding-right: calc((100% - 1280px) / 2);
     }
 }
 
 .footer-head {
     display: flex;
-    @media (380px <= width < 1280px) {
+    width: 100%;
+    @media (380px <= width < 768px) {
         flex-direction: column;
         align-items: center;
     }
-    @media (1280px < width) {
+    @media (768px < width) {
         flex-direction: row;
         justify-content: space-between;
     }
-    width: 100%;
 }
 
 .logo {
@@ -43,7 +41,7 @@
     line-height: 35px;
     font-style: normal;
     text-transform: lowercase;
-    @media (380px <= width < 1280px) {
+    @media (380px <= width < 768px) {
         display: none;
     }
 }
@@ -73,34 +71,33 @@
 
 .footer-foot {
     display: flex;
-    @media (380px <= width < 1280px) {
+    @media (380px <= width < 768px) {
         flex-direction: column;
         gap: 50px;
     }
-    @media (1280px < width) {
+    @media (768px < width) {
         flex-direction: row;
         gap: 200px;
     }
     width: 100%;
-    align-items: center;
 }
 
 .socials {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    @media (380px <= width < 1280px) {
+    @media (380px <= width < 768px) {
         width: 100%;
     }
 }
 
 .socials-items {
     display: flex;
-    @media (380px <= width < 1280px) {
+    @media (380px <= width < 768px) {
         flex-direction: row;
         justify-content: space-between;
     }
-    @media (1280px < width) {
+    @media (768px < width) {
         flex-direction: column;
         gap: 10px;
     }
@@ -111,7 +108,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    @media (380px <= width < 1280px) {
+    @media (380px <= width < 768px) {
         width: 100%;
     }
 }
@@ -119,12 +116,7 @@
 .contacts-items {
     display: flex;
     flex-direction: column;
-    @media (380px <= width < 1280px) {
-        gap: 10px;
-    }
-    @media (1280px < width) {
-        gap: 10px;
-    }
+    gap: 10px;
 }
 
 .heading {
