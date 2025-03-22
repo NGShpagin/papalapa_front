@@ -23,7 +23,6 @@
 }
 
 .button-el {
-    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -40,11 +39,20 @@
     backdrop-filter: blur(2px);
 
     z-index: 99999;
+
+    @media (380px <= width < 768px) {
+        display: block;
+    }
+    @media (768px < width) {
+        display: none;
+    }
 }
 
 .button-el:hover {
-    cursor: pointer;
-    color: #725446;
+    @media (768px < width) {
+        cursor: pointer;
+        color: #725446;
+    }
 }
 
 .image {

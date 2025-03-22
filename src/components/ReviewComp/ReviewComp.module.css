@@ -6,7 +6,7 @@
     border-radius: 10px;
     border: 1px solid var(--main-light-brown);
     height: 310px;
-    @media (480px <= width < 768px) {
+    @media (390px <= width < 768px) {
         width: 100%;
     }
 

@@ -4,7 +4,7 @@
     flex-direction: row;
     gap: 20px;
     @media (390px <= width < 768px) {
-        justify-content: center;
+        width: 100%;
     }
     @media (768px <= width < 960px) {
         justify-content: left;

@@ -155,7 +155,7 @@ export function MainPage() {
             <div className={styles['carousel-block']}>
                 <CarouselBoot/>
             </div>
-            <div id="catalog" className={cn(styles['hits-block'])}>
+            <div id="catalog" className={cn(styles['hits-block'], 'main-grid')}>
                 <div className={styles['hits-header']}>
                     <h2 className={cn(styles['hits-text'])}>Каталог</h2>
                 </div>
