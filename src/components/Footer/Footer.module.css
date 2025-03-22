@@ -11,7 +11,7 @@
     padding-bottom: 20px;
     justify-self: center;
     width: 90vw;
-    @media (390px <= width < 768px) {
+    @media (380px <= width < 768px) {
         gap: 40px;
         max-width: 760px;
     }
@@ -146,6 +146,8 @@
 }
 
 .item:hover {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
-    cursor: pointer;
+    @media (768px < width) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+        cursor: pointer;
+    }
 }
