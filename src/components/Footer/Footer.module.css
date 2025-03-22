@@ -13,6 +13,7 @@
     width: 90vw;
     @media (390px <= width < 768px) {
         gap: 40px;
+        max-width: 760px;
     }
     @media (768px < width) {
         height: 358px;
@@ -104,7 +105,7 @@
 
 }
 
-.contacts {
+.contacts-block {
     display: flex;
     flex-direction: column;
     gap: 20px;

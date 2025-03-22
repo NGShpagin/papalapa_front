@@ -23,7 +23,7 @@ export function Footer() {
                             <a className={styles['item']}>Instagram</a>
                         </div>
                     </div>
-                    <div className={styles['contacts']}>
+                    <div className={styles['contacts-block']}>
                         <h3 className={styles['heading']}>Контакты</h3>
                         <div className={styles['contacts-items']}>
                             <a className={styles['item']}>papalapa.store@yandex.ru</a>
