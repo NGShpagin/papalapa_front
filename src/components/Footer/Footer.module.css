@@ -12,7 +12,7 @@
     justify-self: center;
     @media (390px <= width < 768px) {
         gap: 40px;
-        width: 100%;
+        width: 90vw;
     }
     @media (768px < width) {
         height: 358px;

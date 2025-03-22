@@ -3,10 +3,10 @@
     @media (390px <= width < 768px) {
         display: flex;
         flex-direction: row;
-        overflow: auto;
+        overflow: scroll;
         scrollbar-width: none;
         gap: 10px;
-        max-width: 390px;
+        max-width: calc(100vw);
     }
     @media (768px <= width) {
         display: grid;

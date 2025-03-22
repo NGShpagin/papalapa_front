@@ -79,18 +79,26 @@ h2 {
     }
 
     @media (768px <= width < 960px) {
-        width: 768px;
+        /*width: 768px;*/
+        padding-left: calc((100% - 768px) / 2);
+        padding-right: calc((100% - 768px) / 2);
     }
 
     @media (960px <= width < 1280px) {
-        width: 960px;
+        /*width: 960px;*/
+        padding-left: calc((100% - 960px) / 2);
+        padding-right: calc((100% - 960px) / 2);
     }
 
     @media (1280px <= width < 1440px) {
-        width: 1280px;
+        /*width: 1280px;*/
+        padding-left: calc((100% - 1280px) / 2);
+        padding-right: calc((100% - 1280px) / 2);
     }
 
     @media (1440px <= width) {
-        width: 1440px;
+        /*width: 1440px;*/
+        padding-left: calc((100% - 1440px) / 2);
+        padding-right: calc((100% - 1440px) / 2);
     }
 }

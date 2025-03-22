@@ -19,6 +19,7 @@
     padding-bottom: 80px;
     @media (390px <= width < 768px) {
         width: 100%;
+        padding-left: 5%;
         /*justify-self: center;*/
     }
     @media (768px <= width) {
@@ -277,7 +278,7 @@
         flex-direction: column;
         gap: 80px;
     }
-    @media (1280px <= width) {
+    @media (768px <= width) {
         flex-direction: row;
         gap: 125px;
     }
@@ -292,7 +293,7 @@
         background-size: cover;
     }
     @media (1280px <= width) {
-        width: 610px;
+        width: 50%;
         min-width: 610px;
         background-position-y: -120%;
         background-size: cover;
@@ -353,6 +354,7 @@
     justify-self: center;
     padding-top: 80px;
     padding-bottom: 80px;
+    width: 100%;
     /*@media (390px <= width < 768px) {*/
     /*    padding-left: calc((100% - 390px) / 2);*/
     /*    padding-right: calc((100% - 390px) / 2);*/

@@ -5,7 +5,7 @@ import cn from 'classnames';
 export function Header() {
 
     return (
-        <header className={cn(styles['header'], 'main-grid')}>
+        <header className={cn(styles['header'])}>
             <NavLink to={'/'} className={styles['logo']}>
                 papalapa
             </NavLink>
