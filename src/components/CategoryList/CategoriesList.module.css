@@ -1,24 +1,16 @@
-@media (380px <= width < 1280px) {
-    .wrapper {
+.wrapper {
+    height: 100%;
+    @media (380px <= width < 768px) {
         display: flex;
         flex-direction: row;
-        overflow-x: scroll;
-        gap: 20px;
+        overflow: auto;
+        scrollbar-width: none;
+        gap: 10px;
     }
-}
-
-@media (1280px <= width) {
-    .wrapper {
+    @media (768px <= width) {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         column-gap: 20px;
         row-gap: 40px;
     }
-}
-
-.wrapper {
-    height: 100%;
-    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
-
-    flex-direction: row;
 }

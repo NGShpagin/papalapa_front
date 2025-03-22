@@ -19,12 +19,12 @@ function CarouselBoot() {
                     {!isMobileDevice ? <div className={styles['image_box']}>
                             <img
                                 className="d-block h-100 w-50"
-                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-1-1.png"
+                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-1-1.jpeg"
                                 alt="First slide"
                             />
                             <img
                                 className="d-block h-100 w-50"
-                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-1-2.png"
+                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-1-2.jpeg"
                                 alt="First slide"
                             />
                         </div> :
@@ -43,8 +43,8 @@ function CarouselBoot() {
                 <Carousel.Item interval={3000} className={styles['carousel-item']}>
                     <div className={styles['image_box']}>
                         <img
-                            className="d-block w-100 h-100"
-                            src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-2.png"
+                            className="d-block w-100 h-100 object-fit-cover"
+                            src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-2.jpeg"
                             alt="Second slide"
                         />
                     </div>
@@ -57,20 +57,20 @@ function CarouselBoot() {
                 <Carousel.Item interval={3000} className={styles['carousel-item']}>
                     {!isMobileDevice ? <div className={styles['image_box']}>
                             <img
-                                className="d-block w-50 h-100"
-                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-3-1.png"
+                                className="d-block w-50 h-100 align-content-center"
+                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-3-1.jpeg"
                                 alt="Third slide"
                             />
                             <img
-                                className="d-block w-50 h-100"
-                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-3-2.png"
+                                className="d-block w-50 h-100 align-content-center"
+                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-3-2.jpeg"
                                 alt="Third slide"
                             />
                         </div> :
                         <div className={styles['image_box']}>
                             <img
                                 className="d-block w-100 h-100 object-fit-cover"
-                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-3-2.png"
+                                src="https://storage.yandexcloud.net/papalapa-storage/website/carousel-image-3-2.jpeg"
                                 alt="First slide"
                             />
                         </div>

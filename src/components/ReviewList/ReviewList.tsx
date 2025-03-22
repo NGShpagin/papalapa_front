@@ -11,8 +11,9 @@ export function ReviewList({header, reviews}: ReviewListProps) {
     const [currentReviews, setCurrentReviews] = useState<Review[]>([]);
     const [reviewPage, setReviewPage] = useState<number>(1);
     const [maxPage, setMaxPage] = useState<number>(0);
-    const isMobileDevice = useMediaQuery("(380px <= width < 1280px)");
-    const isDesktop = useMediaQuery("(1280px <= width)");
+    const isMobileDevice = useMediaQuery("(380px <= width < 768px)");
+    const isDesktopM = useMediaQuery("(768px <= width < 1280px)");
+    const isDesktopL = useMediaQuery("(1280px <= width)");
 
     useEffect(() => {
         if (isMobileDevice) {
@@ -20,7 +21,13 @@ export function ReviewList({header, reviews}: ReviewListProps) {
             const firstPage: Review[] = []
             if (reviews.length > 1) firstPage.push(reviews[0])
             setCurrentReviews(firstPage)
-        } else if (isDesktop) {
+        } else if (isDesktopM) {
+            setMaxPage(reviews.length / 2)
+            const firstPage: Review[] = []
+            if (reviews.length > 1) firstPage.push(reviews[0])
+            if (reviews.length > 2) firstPage.push(reviews[1])
+            setCurrentReviews(firstPage)
+        } else if (isDesktopL) {
             setMaxPage(reviews.length / 3)
             const firstPage: Review[] = []
             if (reviews.length > 1) firstPage.push(reviews[0])
@@ -28,7 +35,7 @@ export function ReviewList({header, reviews}: ReviewListProps) {
             if (reviews.length > 3) firstPage.push(reviews[2])
             setCurrentReviews(firstPage)
         }
-    }, [isDesktop, isMobileDevice, maxPage, reviews, reviews.length]);
+    }, [isDesktopL, isDesktopM, isMobileDevice, maxPage, reviews, reviews.length]);
 
     const getReviewPage = (page: number) => {
         if (page === 0) return;
@@ -37,7 +44,10 @@ export function ReviewList({header, reviews}: ReviewListProps) {
         const newReviews = [];
         if (isMobileDevice) {
             if (reviews.length > page) newReviews.push(reviews[page-1])
-        } else if (isDesktop) {
+        } else if (isDesktopM) {
+            if (reviews.length > 2 * page - 1) newReviews.push(reviews[2 * page - 2])
+            if (reviews.length > 2 * page) newReviews.push(reviews[2 * page - 1])
+        } else if (isDesktopL) {
             if (reviews.length > 3 * page - 2) newReviews.push(reviews[3 * page - 3])
             if (reviews.length > 3 * page - 1) newReviews.push(reviews[3 * page - 2])
             if (reviews.length >= 3 * page) newReviews.push(reviews[3 * page - 1])

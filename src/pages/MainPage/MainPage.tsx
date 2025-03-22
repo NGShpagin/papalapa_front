@@ -155,7 +155,7 @@ export function MainPage() {
             <div className={styles['carousel-block']}>
                 <CarouselBoot/>
             </div>
-            <div id="catalog" className={cn(styles['hits-block'], 'main-grid')}>
+            <div id="catalog" className={cn(styles['hits-block'])}>
                 <div className={styles['hits-header']}>
                     <h2 className={cn(styles['hits-text'])}>Каталог</h2>
                 </div>
@@ -187,24 +187,24 @@ export function MainPage() {
                                   image={activeItem.image} wbUrl={activeItem.wbUrl}/>
                     </div>}
             </div>
-            <div id="about-us" className={cn(styles['about-block'], 'main-grid')}>
-                <div className={styles['about-block__container']}>
+            <div id="about-us" className={cn(styles['about-block'])}>
+                <div className={cn(styles['about-block__container'], 'main-grid')}>
                     <div className={cn(styles['about-block__brick'], styles['first-brick'])}>
                         <div className={styles['about-block__header']}>
-                            <h2 className={styles['brick-header-text']}>Экологично</h2>
-                            <h4 className={cn(styles['about-block__h4'])}>4 года на рынке</h4>
+                            <p className={styles['brick-header-text']}>Экологично</p>
+                            <p className={cn(styles['about-block__h4'])}>4 года на рынке</p>
                         </div>
                         <p className={cn(styles['about-block__brick-p'], 'main-text')}>В производстве мы используем
                             только
                             натуральные и безопасные ткани, которые бережно заботятся о коже вашего ребёнка</p>
                     </div>
-                    <hr className={styles['about-block__hr']} style={{height: '458px'}}/>
+                    <hr className={cn(styles['about-block__hr'], styles['middle-hr'])}/>
                     <div className={cn(styles['about-block__brick'], styles['empty-brick'])}/>
                     <hr className={cn(styles['about-block__hr'])} style={{height: '558px'}}/>
                     <div className={cn(styles['about-block__brick'], styles['third-brick'])}>
                         <div className={styles['about-block__header']}>
-                            <h2 className={styles['brick-header-text']}>Качественно</h2>
-                            <h4 className={styles['about-block__h4']}>Личный контроль</h4>
+                            <p className={styles['brick-header-text']}>Качественно</p>
+                            <p className={styles['about-block__h4']}>Личный контроль</p>
                         </div>
                         <p className={cn(styles['about-block__p'], 'main-text')}>Все материалы имеют сертификаты
                             якачества и
@@ -213,8 +213,8 @@ export function MainPage() {
                     <hr className={styles['about-block__hr']} style={{height: '402px'}}/>
                     <div className={cn(styles['about-block__brick'], styles['last-brick'])}>
                         <div className={styles['about-block__header']}>
-                            <h2 className={styles['brick-header-text']}>Уникально</h2>
-                            <h4 className={styles['about-block__h4']}>Нет аналогов</h4>
+                            <p className={styles['brick-header-text']}>Уникально</p>
+                            <p className={styles['about-block__h4']}>Нет аналогов</p>
                         </div>
                         <p className={cn(styles['about-block__p'], 'main-text')}>Мы создаём товары, которые не только
                             удобны,
@@ -223,7 +223,7 @@ export function MainPage() {
                 </div>
                 <div className={styles['about-block__footer']}>
                     <div className={styles['about-block__image']}/>
-                    <div className={styles['about-block__description']}>
+                    <div className={cn(styles['about-block__description'], 'main-grid')}>
                         <div className={styles['about-block__description__header']}>
                             <div className={cn(styles['about-block__h2'], 'h2')}>О нас</div>
                             <div className={cn(styles['about-block__p'], 'main-text')}>PAPALAPA — российский бренд

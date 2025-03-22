@@ -57,7 +57,6 @@ export function ItemCategory(props: ItemCategoryProps) {
                 <div className={cn(styles['price'], 'text-button-medium')}>{activeColor?.price}&nbsp;
                     <span>₽</span></div>
             </div>
-
         </div>
     )
 }

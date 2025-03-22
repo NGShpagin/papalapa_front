@@ -11,17 +11,20 @@
 }
 
 .hits-block {
-    position: relative;
     height: auto;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    /*margin-left: calc((100% - 1440px) / 2);*/
-    /*margin-right: calc((100% - 1440px) / 2);*/
     padding-top: 80px;
     padding-bottom: 80px;
-    /*width: 1240px;*/
-    justify-self: center;
+    @media (390px <= width < 768px) {
+        width: 390px;
+        justify-self: center;
+    }
+    @media (768px <= width) {
+        justify-self: center;
+        position: relative;
+    }
 }
 
 .hits-cards {
@@ -105,39 +108,42 @@
 .about-block {
     display: flex;
     flex-direction: column;
-    /*height: 1107px;*/
-    /*margin-left: calc((100% - 1240px) / 2);*/
-    /*margin-right: calc((100% - 1240px) / 2);*/
-    /*width: 1240px;*/
-    /*padding: 0 100px 80px;*/
+    width: 100%;
     padding-bottom: 80px;
     justify-self: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .about-block__container {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    @media (380px <= width < 1280px) {
-        flex-direction: column;
-        padding-top: 30px;
+    @media (380px <= width < 768px) {
+        position: relative;
+        justify-self: center;
+        flex-wrap: wrap;
+        margin-bottom: 84px;
+        border-left: var(--main-light-brown) 1px solid;
+    }
+    @media (768px <= width) {
+
     }
 }
 
 .about-block__brick {
-    @media (380px <= width < 1280px) {
+    display: flex;
+    flex-direction: column;
+    @media (380px <= width < 768px) {
         width: 100%;
-        gap: 10px;
+        gap: 60px;
+        padding-left: 15px;
     }
-    @media (1280px <= width) {
+    @media (768px <= width) {
         width: 295px;
         padding-top: 90px;
         padding-bottom: 90px;
         gap: 120px;
     }
-    display: flex;
-    flex-direction: column;
 }
 
 .about-block__brick-p {
@@ -145,22 +151,47 @@
 }
 
 .first-brick {
-    @media (1280px <= width) {
+    @media (380px <= width < 768px) {
+        width: 50%;
+        /*width: 162px;*/
+        height: 400px;
+        padding-top: 80px;
+        padding-right: 5%;
+    }
+    @media (768px <= width) {
+        margin-right: 20px;
+    }
+}
+
+.empty-brick {
+    @media (380px <= width < 768px) {
+        display: none;
+    }
+}
+
+.third-brick {
+    @media (380px <= width < 768px) {
+        /*width: 178px;*/
+        width: 50%;
+        border-right: var(--main-light-brown) 1px solid;
+        padding-top: 80px;
+        padding-right: 5%;
+    }
+    @media (768px <= width) {
+        margin-left: 20px;
         margin-right: 20px;
     }
 }
 
 .last-brick {
-    @media (1280px <= width) {
+    @media (380px <= width < 768px) {
+        width: 100%;
+        /*padding-right: 15px;*/
+        padding-right: 10%;
+    }
+    @media (768px <= width) {
         margin-left: 20px;
         width: 277px;
-    }
-}
-
-.third-brick {
-    @media (1280px <= width) {
-        margin-left: 20px;
-        margin-right: 20px;
     }
 }
 
@@ -183,8 +214,14 @@
     font-family: 'Exo 2', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 42px;
     line-height: 100%;
+    margin-bottom: 0;
+    @media (380px <= width < 768px) {
+        font-size: 24px;
+    }
+    @media (768px <= width) {
+        font-size: 42px;
+    }
 }
 
 .about-block__h2 {
@@ -196,8 +233,13 @@
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
     line-height: 130%;
+    @media (380px <= width < 768px) {
+        font-size: 12px;
+    }
+    @media (768px <= width) {
+        font-size: 16px;
+    }
 }
 
 .about-block__p {
@@ -212,8 +254,25 @@
     }
 }
 
+.middle-hr {
+    display: block;
+    @media (380px <= width < 768px) {
+        position: absolute;
+        height: 317px;
+        border: 1px solid var(--main-light-brown);
+        top: 0;
+        left: 50%;
+        z-index: 1000;
+    }
+    @media (768px <= width) {
+        height: 458px;
+    }
+}
+
 .about-block__footer {
     display: flex;
+    width: 100%;
+    align-items: center;
     @media (390px <= width < 768px) {
         flex-direction: column;
         gap: 80px;
@@ -246,6 +305,9 @@
     @media (390px <= width < 768px) {
         gap: 40px;
     }
+    @media (768px <= width < 1280px) {
+        gap: 60px;
+    }
     @media (1280px <= width) {
         justify-content: space-between;
     }
@@ -257,7 +319,7 @@
     @media (390px <= width < 768px) {
         gap: 40px;
     }
-    @media (1280px <= width) {
+    @media (768px <= width) {
         gap: 65px;
     }
 }

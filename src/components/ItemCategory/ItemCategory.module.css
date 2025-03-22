@@ -3,13 +3,11 @@
     flex-direction: column;
     gap: 15px;
     text-decoration: none;
-    /*width: 295px;*/
-    @media (380px <= width < 1280px) {
-        width: 100%;
+    @media (380px <= width < 768px) {
+        min-width: 295px;
     }
-    @media (1280px < width) {
+    @media (768px < width) {
         width: 295px;
-        /*height: 480px;*/
     }
 }
 
