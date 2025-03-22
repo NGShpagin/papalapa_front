@@ -74,7 +74,8 @@ h2 {
 
 .main-grid {
     @media (390px <= width < 768px) {
-        width: 390px;
+        padding-left: calc((100% - 390px) / 2);
+        padding-right: calc((100% - 390px) / 2);
     }
 
     @media (768px <= width < 960px) {

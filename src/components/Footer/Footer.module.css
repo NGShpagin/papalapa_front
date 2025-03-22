@@ -1,18 +1,6 @@
-@media (380px <= width < 1280px) {
-    .container {
-        align-items: center;
-    }
-}
-
-@media (1280px < width) {
-    .container {
-        padding-left: calc((100% - 1280px) / 2);
-        padding-right: calc((100% - 1280px) / 2);
-    }
-}
-
 .footer {
-    background-color: rgba(85, 68, 60, 0.33)
+    background-color: rgba(85, 68, 60, 0.33);
+    width: 100%;
 }
 
 .container {
@@ -22,11 +10,14 @@
     padding-top: 20px;
     padding-bottom: 20px;
     justify-self: center;
-    @media (380px <= width < 1280px) {
+    @media (390px <= width < 768px) {
         gap: 40px;
+        width: 100%;
     }
-    @media (1280px < width) {
+    @media (768px < width) {
         height: 358px;
+        padding-left: calc((100% - 1280px) / 2);
+        padding-right: calc((100% - 1280px) / 2);
     }
 }
 

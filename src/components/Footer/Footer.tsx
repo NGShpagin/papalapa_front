@@ -3,8 +3,8 @@ import cn from "classnames";
 
 export function Footer() {
     return (
-        <footer id='contacts' className={cn(styles['footer'])}>
-            <div className={cn(styles['container'], 'main-grid')}>
+        <footer id='contacts' className={cn(styles['footer'], 'main-grid')}>
+            <div className={cn(styles['container'])}>
                 <div className={styles['footer-head']}>
                     <div className={styles['logo']}>papalapa</div>
                     <div className={styles['menu']}>
