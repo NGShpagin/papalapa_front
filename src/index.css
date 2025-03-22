@@ -29,7 +29,7 @@ h2 {
     line-height: 100% !important;
     letter-spacing: -0.05em;
     color: var(--main-dark-brown);
-    @media (390px <= width < 768px) {
+    @media (380px <= width < 768px) {
         font-size: 30px !important;
     }
     @media (768px <= width) {
@@ -44,7 +44,7 @@ h2 {
     line-height: 130%;
     color: var(--main-dark-brown);
     margin-bottom: 0;
-    @media (390px <= width < 768px) {
+    @media (380px <= width < 768px) {
         font-size: 14px;
     }
     @media (768px <= width) {
@@ -73,7 +73,7 @@ h2 {
 }
 
 .main-grid {
-    @media (390px <= width < 768px) {
+    @media (380px <= width < 768px) {
         padding-left: calc((100% - 390px) / 2);
         padding-right: calc((100% - 390px) / 2);
     }

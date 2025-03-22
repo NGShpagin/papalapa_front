@@ -1,6 +1,6 @@
 .wrapper {
     height: 100%;
-    @media (390px <= width < 768px) {
+    @media (380px <= width < 768px) {
         display: flex;
         flex-direction: row;
         overflow: scroll;
