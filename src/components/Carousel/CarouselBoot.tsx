@@ -4,7 +4,7 @@ import styles from './Carousel.module.css'
 import {useMediaQuery} from "@uidotdev/usehooks";
 
 function CarouselBoot() {
-    const isMobileDevice = useMediaQuery("(390px <= width < 768px)");
+    const isMobileDevice = useMediaQuery("(380px <= width < 768px)");
     // const isDesktop_1280 = useMediaQuery("(768px <= width < 1280px)");
     // const isDesktop_1440 = useMediaQuery("(1280px <= width < 1440px)");
     // const isDesktop_1920 = useMediaQuery("(1440px <= width)");
