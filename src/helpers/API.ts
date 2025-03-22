@@ -1,1 +1,1 @@
-export const PREFIX = 'https://89.169.150.117:443/papalapa';
+export const PREFIX = 'http://89.169.150.117:8280/papalapa';

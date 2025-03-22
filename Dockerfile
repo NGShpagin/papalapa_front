@@ -7,6 +7,7 @@ RUN npm install -g npm@11.2.0
 RUN npm install --verbose
 COPY . .
 RUN npm run build
+RUN #PUBLIC_URL=https://89.169.150.117:443 npm run build
 
 # Production Stage
 FROM nginx:stable-alpine
