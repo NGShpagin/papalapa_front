@@ -2,50 +2,22 @@
     background-color: rgba(85, 68, 60, 0.33);
     display: flex;
     justify-content: center;
-    /*width: 100%;*/
+    width: 100%;
+    background-image: url("src/assets/Footer.svg");
+    background-color: #FFF6E0;
 }
 
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 35px;
+    padding-bottom: 35px;
     justify-self: center;
-    width: 90vw;
-    @media (380px <= width < 768px) {
-        gap: 40px;
-        max-width: 760px;
-    }
-    @media (768px < width) {
-        height: 358px;
-    }
-}
-
-.footer-head {
-    display: flex;
     width: 100%;
     @media (380px <= width < 768px) {
-        flex-direction: column;
-        align-items: center;
     }
     @media (768px < width) {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-.logo {
-    font-family: "Love Ya Like A Sister", cursive;
-    color: #000000;
-    text-decoration: none;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 35px;
-    font-style: normal;
-    text-transform: lowercase;
-    @media (380px <= width < 768px) {
-        display: none;
     }
 }
 
@@ -56,11 +28,11 @@
 }
 
 .link {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
+    font-family: 'Inter', serif;
+    font-weight: 400;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 130%;
+    letter-spacing: 0;
     color: #000000;
     text-decoration: none;
     width: fit-content;
@@ -72,17 +44,18 @@
     cursor: pointer;
 }
 
-.footer-foot {
+.footer__right_block {
     display: flex;
+    background-color: #FFF6E0;
+    border-radius: 20px;
     @media (380px <= width < 768px) {
         flex-direction: column;
         gap: 50px;
     }
     @media (768px < width) {
         flex-direction: row;
-        gap: 200px;
+        gap: 60px;
     }
-    width: 100%;
 }
 
 .socials {
@@ -94,7 +67,7 @@
     }
 }
 
-.socials-items {
+.socials__items {
     display: flex;
     @media (380px <= width < 768px) {
         flex-direction: row;
@@ -104,10 +77,9 @@
         flex-direction: column;
         gap: 10px;
     }
-
 }
 
-.contacts-block {
+.contacts {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -116,40 +88,18 @@
     }
 }
 
-.contacts-items {
+.contacts__items {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.heading {
+.title {
     font-family: 'Inter', sans-serif;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 70%;
-    letter-spacing: -0.05em;
-    color: #000000;
-    margin: 0;
-}
-
-.item {
-    font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: -0.03em;
     color: #000000;
     margin: 0;
-    width: fit-content;
-    height: 20px;
-    text-decoration: none;
-}
-
-.item:hover {
-    @media (768px < width) {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.7);
-        cursor: pointer;
-    }
 }

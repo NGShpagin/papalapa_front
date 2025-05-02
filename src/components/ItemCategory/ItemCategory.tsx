@@ -36,23 +36,27 @@ export function ItemCategory(props: ItemCategoryProps) {
     return (
         <div className={styles['item-card']}>
             <div className={cn(styles['image-box'])}>
-                <img id={'image-container'} className={styles['image']} src={activeColorImage?.imageUrl} alt="image"/>
+                <div className={cn(styles['image-box__image'])}>
+                    <img id={'image-container'} className={styles['image']} src={activeColorImage?.imageUrl} alt="image"/>
+                </div>
                 <div className={styles['image-cycle-box']}>{itemCycles}</div>
                 <a className={cn(styles['button-el'], 'main-text')} href={activeColor?.wbUrl}>Купить</a>
             </div>
             <div className={styles['description']}>
-                <div className={cn(styles['title'], 'main-text')}>{props.title}</div>
-                <div className={styles['color-box']}>
-                    {props.colorList?.map((item) => {
-                        const color = props.colorList?.find((color) => color.id === item.id);
-                        if (!color) {
-                            return;
-                        }
-                        return <div className={cn(styles['color'], {
-                            [styles['active-color']]: activeColor?.id === item.id
-                        })} style={{backgroundColor: color.colorValue}}
-                                    onClick={() => setActiveColor(color)}/>
-                    })}
+                <div className={cn(styles['description__descript'])}>
+                    <div className={cn(styles['title'], 'main-text')}>{props.title}</div>
+                    <div className={styles['color-box']}>
+                        {props.colorList?.map((item) => {
+                            const color = props.colorList?.find((color) => color.id === item.id);
+                            if (!color) {
+                                return;
+                            }
+                            return <div className={cn(styles['color'], {
+                                [styles['active-color']]: activeColor?.id === item.id
+                            })} style={{backgroundColor: color.colorValue}}
+                                        onClick={() => setActiveColor(color)}/>
+                        })}
+                    </div>
                 </div>
                 <div className={cn(styles['price'], 'text-button-medium')}>{activeColor?.price}&nbsp;
                     <span>₽</span></div>

@@ -90,6 +90,12 @@ h2 {
         padding-right: calc((100% - 960px) / 2);
     }
 
+    /*@media (960px <= width) {*/
+    /*    !*width: 960px;*!*/
+    /*    padding-left: calc((100% - 960px) / 2);*/
+    /*    padding-right: calc((100% - 960px) / 2);*/
+    /*}*/
+
     @media (1280px <= width < 1440px) {
         /*width: 1280px;*/
         padding-left: calc((100% - 1280px) / 2);

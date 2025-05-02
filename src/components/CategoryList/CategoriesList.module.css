@@ -9,9 +9,14 @@
         max-width: calc(100vw);
     }
     @media (768px <= width) {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        column-gap: 20px;
+        /*display: grid;*/
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+        /*grid-template-columns: 1fr 1fr 1fr;*/
+        /*column-gap: 20px;*/
         row-gap: 40px;
     }
 }

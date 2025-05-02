@@ -1,5 +1,4 @@
 import styles from './MainPage.module.css';
-import {Link} from "react-router-dom";
 import CarouselBoot from "../../components/Carousel/CarouselBoot";
 import {ItemCard} from "../../components/ItemCard/ItemCard";
 import {useEffect, useRef, useState} from "react";
@@ -15,6 +14,7 @@ import {Footer} from "../../components/Footer/Footer";
 import {SelectItem} from "../../interfaces/SelectItem";
 import {WbItem} from "../../interfaces/WbItem.ts";
 import {useMediaQuery} from "@uidotdev/usehooks";
+import {AboutUs} from "../../components/AboutUs/AboutUs.tsx";
 
 export function MainPage() {
 
@@ -155,7 +155,7 @@ export function MainPage() {
             <div className={styles['carousel-block']}>
                 <CarouselBoot/>
             </div>
-            <div id="catalog" className={cn(styles['hits-block'])}>
+            <div id="catalog" className={cn(styles['hits-block'], 'main-grid')}>
                 <div className={styles['hits-header']}>
                     <h2 className={cn(styles['hits-text'])}>Каталог</h2>
                 </div>
@@ -166,21 +166,29 @@ export function MainPage() {
                         </div>
                     </div>}
                 {catalogError != null && <div>{catalogError}</div>}
-                {!isMobileDevice && !isCategoriesLoading && <div className={styles['hits-description']}>
-                    Тепло в деталях, забота в каждой ниточке
-                </div>}
+                {/*{!isMobileDevice && !isCategoriesLoading && <div className={styles['hits-description']}>*/}
+                {/*    Тепло в деталях, забота в каждой ниточке*/}
+                {/*</div>}*/}
             </div>
-            <div className={styles['select-block']}>
-                {isMobileDevice && <img className={styles['select-block__image']} src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_960.jpeg' alt=""/>}
-                {isDesktop_1280 && <img className={styles['select-block__image']} src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1280.jpeg' alt=""/>}
-                {isDesktop_1440 && <img className={styles['select-block__image']} src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1440.jpeg' alt=""/>}
-                {isDesktop_1920 && <img className={styles['select-block__image']} src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1920.jpeg' alt=""/>}
+            <div className={cn(styles['select-block'], 'main-grid')}>
+                {isMobileDevice && <img className={styles['select-block__image']}
+                                        src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_960.jpeg'
+                                        alt=""/>}
+                {isDesktop_1280 && <img className={styles['select-block__image']}
+                                        src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1280.jpeg'
+                                        alt=""/>}
+                {isDesktop_1440 && <img className={styles['select-block__image']}
+                                        src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1440.jpeg'
+                                        alt=""/>}
+                {isDesktop_1920 && <img className={styles['select-block__image']}
+                                        src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1920.jpeg'
+                                        alt=""/>}
                 {!isMobileDevice && <CheckboxCircle ref={circleButton_1} className={cn(styles['button-1'])}
-                                              onClick={() => activateItem(1)} element={() => getEl()}/>}
+                                                    onClick={() => activateItem(1)} element={() => getEl()}/>}
                 {!isMobileDevice && <CheckboxCircle ref={circleButton_2} className={cn(styles['button-2'])}
-                                              onClick={() => activateItem(2)} element={() => getEl()}/>}
+                                                    onClick={() => activateItem(2)} element={() => getEl()}/>}
                 {!isMobileDevice && <CheckboxCircle ref={circleButton_3} className={cn(styles['button-3'])}
-                                              onClick={() => activateItem(3)} element={() => getEl()}/>}
+                                                    onClick={() => activateItem(3)} element={() => getEl()}/>}
                 {active && activeItem != null &&
                     <div id={'itemCard'} ref={itemCard} className={styles['card']}>
                         <ItemCard id={activeItem.id} title={activeItem.title} price={activeItem.price}
@@ -188,69 +196,18 @@ export function MainPage() {
                     </div>}
             </div>
             <div id="about-us" className={cn(styles['about-block'], 'main-grid')}>
-                <div className={cn(styles['about-block__container'], 'main-grid')}>
-                    <div className={cn(styles['about-block__brick'], styles['first-brick'])}>
-                        <div className={styles['about-block__header']}>
-                            <p className={styles['brick-header-text']}>Экологично</p>
-                            <p className={cn(styles['about-block__h4'])}>4 года на рынке</p>
-                        </div>
-                        <p className={cn(styles['about-block__brick-p'], 'main-text')}>В производстве мы используем
-                            только
-                            натуральные и безопасные ткани, которые бережно заботятся о коже вашего ребёнка</p>
-                    </div>
-                    <hr className={cn(styles['about-block__hr'], styles['middle-hr'])}/>
-                    <div className={cn(styles['about-block__brick'], styles['empty-brick'])}/>
-                    <hr className={cn(styles['about-block__hr'])} style={{height: '558px'}}/>
-                    <div className={cn(styles['about-block__brick'], styles['third-brick'])}>
-                        <div className={styles['about-block__header']}>
-                            <p className={styles['brick-header-text']}>Качественно</p>
-                            <p className={styles['about-block__h4']}>Личный контроль</p>
-                        </div>
-                        <p className={cn(styles['about-block__p'], 'main-text')}>Все материалы имеют сертификаты
-                            якачества и
-                            соответствуют стандартам экологичности</p>
-                    </div>
-                    <hr className={styles['about-block__hr']} style={{height: '402px'}}/>
-                    <div className={cn(styles['about-block__brick'], styles['last-brick'])}>
-                        <div className={styles['about-block__header']}>
-                            <p className={styles['brick-header-text']}>Уникально</p>
-                            <p className={styles['about-block__h4']}>Нет аналогов</p>
-                        </div>
-                        <p className={cn(styles['about-block__p'], 'main-text')}>Мы создаём товары, которые не только
-                            удобны,
-                            но и выглядят эстетично, добавляя уют и гармонию в детской</p>
-                    </div>
-                </div>
-                <div className={styles['about-block__footer']}>
-                    <div className={styles['about-block__image']}/>
-                    <div className={cn(styles['about-block__description'], 'main-grid')}>
-                        <div className={styles['about-block__description__header']}>
-                            <div className={cn(styles['about-block__h2'], 'h2')}>О нас</div>
-                            <div className={cn(styles['about-block__p'], 'main-text')}>PAPALAPA — российский бренд
-                                детского текстиля,
-                                созданный для заботы о малыше. Мы используем только экологичные материалы и контролируем
-                                каждый этап производства, чтобы обеспечить высокое качество и безопасность. Наши изделия
-                                —
-                                это сочетание уюта, эстетики и заботы о вашем ребёнке.
-                            </div>
-                        </div>
-                        <Link className={cn(styles['about-block__link'])} to={'/about'}>
-                            <div className={cn(styles['certificates'], 'text-button')}>Сертификаты</div>
-                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M23.3536 15.3536C23.5488 15.1583 23.5488 14.8417 23.3536 14.6464L20.1716 11.4645C19.9763 11.2692 19.6597 11.2692 19.4645 11.4645C19.2692 11.6597 19.2692 11.9763 19.4645 12.1716L22.2929 15L19.4645 17.8284C19.2692 18.0237 19.2692 18.3403 19.4645 18.5355C19.6597 18.7308 19.9763 18.7308 20.1716 18.5355L23.3536 15.3536ZM7 15.5H23V14.5H7V15.5Z"
-                                    fill="#584B45" fill-opacity="0.5"/>
-                            </svg>
-                        </Link>
-                    </div>
-                </div>
+                <h2 className={cn(styles['about-title'])}>О нас</h2>
+                <AboutUs/>
             </div>
-            <div className={styles['image_block']}>
-                {isMobileDevice && <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_768.jpeg' alt=""/>}
-                {isDesktop_1280 && <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1280.jpeg' alt=""/>}
-                {isDesktop_1440 && <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1440.jpeg' alt=""/>}
-                {isDesktop_1920 && <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1920.jpeg' alt=""/>}
+            <div className={cn(styles['image_block'], 'main-grid')}>
+                {isMobileDevice &&
+                    <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_768.jpeg' alt=""/>}
+                {isDesktop_1280 &&
+                    <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1280.jpeg' alt=""/>}
+                {isDesktop_1440 &&
+                    <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1440.jpeg' alt=""/>}
+                {isDesktop_1920 &&
+                    <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1920.jpeg' alt=""/>}
             </div>
             <div id={'reviews'} className={cn(styles['reviews-block'], 'placeholder-glow', 'main-grid')}>
                 {isReviewsLoading && <h2 className={cn(styles['hits-text'])}>Отзывы</h2>}

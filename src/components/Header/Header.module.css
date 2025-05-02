@@ -16,12 +16,15 @@
     @media (960px <= width < 1280px) {
         width: 960px;
     }
-    @media (1280px <= width < 1440px) {
-        width: 1280px;
+    @media (960px <= width) {
+        width: 960px;
     }
-    @media (1440px <= width) {
-        width: 1440px;
-    }
+    /*@media (1280px <= width < 1440px) {*/
+    /*    width: 1280px;*/
+    /*}*/
+    /*@media (1440px <= width) {*/
+    /*    width: 1440px;*/
+    /*}*/
 }
 
 .button {
