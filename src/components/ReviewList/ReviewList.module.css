@@ -51,11 +51,15 @@
 }
 
 .active:hover {
-    cursor: pointer;
+    @media (768px <= width) {
+        cursor: pointer;
+    }
 }
 
 .active:hover path {
-    fill-opacity: 0.4;
+    @media (768px <= width) {
+        fill-opacity: 0.4;
+    }
 }
 
 .reviews-box {

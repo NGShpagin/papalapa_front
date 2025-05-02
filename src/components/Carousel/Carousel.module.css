@@ -20,6 +20,8 @@
     font-weight: 500;
     line-height: 64px;
     max-width: 568px;
+    display: flex;
+    flex-direction: row;
 }
 
 .button {
