@@ -6,8 +6,8 @@ export function AboutUs() {
     return (
         <div className={cn(styles['about_us'])}>
             <div className={cn(styles["row_1"])}>
-                <AboutUsItem appearance={"small"} type={"image"} image={'src/assets/mask_group.svg'}/>
-                <AboutUsItem appearance={"big"} type={"image"} image={'src/assets/image1.jpg'}/>
+                <AboutUsItem appearance={"small"} type={"image"} image={'https://storage.yandexcloud.net/papalapa-storage/website/mask_group.svg'}/>
+                <AboutUsItem appearance={"big"} type={"image"} image={'https://storage.yandexcloud.net/papalapa-storage/website/about_image2.png'}/>
                 <AboutUsItem appearance={"small"} type={"text"}
                              title={"Уникально"}
                              subtitle={"Нет аналогов"}
@@ -25,7 +25,7 @@ export function AboutUs() {
                              subtitle={"Личный контроль"}
                              description={"Все материалы имеют сертификаты якачества и соответствуют стандартам экологичности"}
                 />
-                <AboutUsItem appearance={"big"} type={"image"} image={'src/assets/image2.png'}/>
+                <AboutUsItem appearance={"big"} type={"image"} image={'https://storage.yandexcloud.net/papalapa-storage/website/about_image1.png'}/>
             </div>
         </div>
     );
