@@ -1,0 +1,100 @@
+.block {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 790px;
+    width: 100%;
+}
+
+.block__left {
+    position: relative;
+    height: 100%;
+    border-radius: 40px;
+    background-image: url("https://storage.yandexcloud.net/papalapa-storage/website/Subtract.png");
+    width: 610px;
+}
+
+.block__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-radius: 30px;
+    height: 100%;
+    background-color: #FFF6E0;
+    width: 50%;
+    overflow: hidden;
+}
+
+.block__menu {
+    position: relative;
+    width: fit-content;
+}
+
+.item_1 {
+    position: absolute;
+    left: 33px;
+    top: 18px
+}
+
+.item_2 {
+    position: absolute;
+    top: 18px;
+    left: 188px;
+}
+
+.item_3 {
+    position: absolute;
+    right: 33px;
+    top: 18px
+}
+
+.link {
+    font-family: Inter, serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    text-align: center;
+    color: var(--main-dark-brown);
+    text-decoration: none;
+}
+
+.logo {
+    color: var(--main-dark-brown);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: white;
+}
+
+.button {
+    border: var(--main-black) solid 2px;
+    border-radius: 6000px;
+    height: 59px;
+    width: 217px;
+    font-family: Inter, serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    color: var(--main-black);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--main-white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block__text {
+    font-family: "Exo 2", serif;
+    font-weight: 400;
+    font-size: 46px;
+    line-height: 120%;
+    text-align: center;
+    padding-left: 35px;
+    padding-right: 35px;
+}

@@ -1,5 +1,5 @@
 import styles from './MainPage.module.css';
-import CarouselBoot from "../../components/Carousel/CarouselBoot";
+// import CarouselBoot from "../../components/Carousel/CarouselBoot";
 import {ItemCard} from "../../components/ItemCard/ItemCard";
 import {useEffect, useRef, useState} from "react";
 import cn from "classnames";
@@ -15,6 +15,7 @@ import {SelectItem} from "../../interfaces/SelectItem";
 import {WbItem} from "../../interfaces/WbItem.ts";
 import {useMediaQuery} from "@uidotdev/usehooks";
 import {AboutUs} from "../../components/AboutUs/AboutUs.tsx";
+import {MainComponent} from "../../components/MainComponent/MainComponent.tsx";
 
 export function MainPage() {
 
@@ -152,9 +153,10 @@ export function MainPage() {
 
     return (
         <>
-            <div className={styles['carousel-block']}>
-                <CarouselBoot/>
-            </div>
+            {/*<div className={styles['carousel-block']}>*/}
+            {/*    <CarouselBoot/>*/}
+            {/*</div>*/}
+            <MainComponent style={'main-grid'}/>
             <div id="catalog" className={cn(styles['hits-block'], 'main-grid')}>
                 <div className={styles['hits-header']}>
                     <h2 className={cn(styles['hits-text'])}>Каталог</h2>
