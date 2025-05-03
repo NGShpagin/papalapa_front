@@ -221,6 +221,15 @@ export function MainPage() {
                     </div>}
                 {reviewError != null && <div>{reviewError}</div>}
             </div>
+            <div className={styles['pic_1']}>
+                <img className={styles['']} src="/src/assets/pic_1.svg" alt="pic_1"/>
+            </div>
+            <div className={styles['pic_2']}>
+                <img className={styles['']} src="/src/assets/pic_2.svg" alt="pic_2"/>
+            </div>
+            <div className={styles['pic_3']}>
+                <img className={styles['']} src="/src/assets/pic_3.svg" alt="pic_3"/>
+            </div>
             <Footer/>
         </>
     )

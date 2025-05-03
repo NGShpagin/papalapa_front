@@ -25,6 +25,45 @@
     justify-content: space-between;
 }
 
+.pic_1 {
+    position: absolute;
+    top: 4100px;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.pic_1 img {
+    position: relative;
+    right: -50px
+}
+
+.pic_2 {
+    position: absolute;
+    top: 1500px;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.pic_2 img {
+    position: relative;
+    right: -120px;
+}
+
+.pic_3 {
+    position: absolute;
+    top: 2470px;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.pic_3 img {
+    position: relative;
+    left: -120px;
+}
+
 .hits-description {
     position: absolute;
     width: 610px;
