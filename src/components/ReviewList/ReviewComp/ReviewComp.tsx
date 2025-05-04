@@ -1,4 +1,4 @@
-import {ReviewCompProps} from "./ReviewComp.props";
+import {ReviewCompProps} from "./ReviewComp.props.ts";
 import styles from './ReviewComp.module.css';
 import cn from "classnames";
 

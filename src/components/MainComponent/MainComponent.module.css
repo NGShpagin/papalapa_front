@@ -4,6 +4,7 @@
     justify-content: space-between;
     height: 790px;
     width: 100%;
+    gap: 20px;
 }
 
 .block__left {
@@ -11,7 +12,7 @@
     height: 100%;
     border-radius: 40px;
     background-image: url("https://storage.yandexcloud.net/papalapa-storage/website/Subtract.png");
-    width: 610px;
+    min-width: 610px;
 }
 
 .block__right {
@@ -23,7 +24,7 @@
     border-radius: 30px;
     height: 100%;
     background-color: #FFF6E0;
-    width: 50%;
+    width: auto;
     overflow: hidden;
 }
 
@@ -97,4 +98,14 @@
     text-align: center;
     padding-left: 35px;
     padding-right: 35px;
+}
+
+.block__mask {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.block__mask img {
+    width: 100%;
 }

@@ -1,6 +1,6 @@
 import {ReviewListProps} from "./ReviewList.props";
 import styles from "./ReviewList.module.css";
-import {ReviewComp} from "../ReviewComp/ReviewComp";
+import {ReviewComp} from "./ReviewComp/ReviewComp";
 import {Review} from "../../interfaces/Review"
 import cn from "classnames";
 import {useEffect, useState} from "react";
@@ -22,13 +22,13 @@ export function ReviewList({header, reviews}: ReviewListProps) {
             if (reviews.length > 1) firstPage.push(reviews[0])
             setCurrentReviews(firstPage)
         } else if (isDesktopM) {
-            setMaxPage(reviews.length / 2)
+            setMaxPage(reviews.length % 2 > 0 ? reviews.length / 2 + 1 : reviews.length / 2 )
             const firstPage: Review[] = []
             if (reviews.length > 1) firstPage.push(reviews[0])
             if (reviews.length > 2) firstPage.push(reviews[1])
             setCurrentReviews(firstPage)
         } else if (isDesktopL) {
-            setMaxPage(reviews.length / 3)
+            setMaxPage(reviews.length % 3 > 0 ? Math.floor(reviews.length / 3) + 1 : reviews.length / 3 )
             const firstPage: Review[] = []
             if (reviews.length > 1) firstPage.push(reviews[0])
             if (reviews.length > 2) firstPage.push(reviews[1])
@@ -48,8 +48,8 @@ export function ReviewList({header, reviews}: ReviewListProps) {
             if (reviews.length > 2 * page - 1) newReviews.push(reviews[2 * page - 2])
             if (reviews.length > 2 * page) newReviews.push(reviews[2 * page - 1])
         } else if (isDesktopL) {
-            if (reviews.length > 3 * page - 2) newReviews.push(reviews[3 * page - 3])
-            if (reviews.length > 3 * page - 1) newReviews.push(reviews[3 * page - 2])
+            if (reviews.length >= 3 * page - 2) newReviews.push(reviews[3 * page - 3])
+            if (reviews.length >= 3 * page - 1) newReviews.push(reviews[3 * page - 2])
             if (reviews.length >= 3 * page) newReviews.push(reviews[3 * page - 1])
         }
         if (newReviews.length > 0) setCurrentReviews(newReviews)

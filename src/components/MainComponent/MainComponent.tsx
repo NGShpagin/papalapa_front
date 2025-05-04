@@ -28,7 +28,7 @@ export function MainComponent({...props}: MainComponentProps) {
                 <div className={cn(styles["block__text"])}>
                     Мы — российский бренд детского текстиля, созданный для заботы о малыше.
                 </div>
-                <div>
+                <div className={cn(styles["block__mask"])}>
                     <img src="https://storage.yandexcloud.net/papalapa-storage/website/main_logo.svg"
                          alt="papalapa_mask"/>
                 </div>

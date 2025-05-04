@@ -99,13 +99,19 @@ h2 {
 
     @media (1280px <= width < 1440px) {
         /*width: 1280px;*/
-        padding-left: calc((100% - 1280px) / 2);
-        padding-right: calc((100% - 1280px) / 2);
+        padding-left: calc((100% - 1240px) / 2);
+        padding-right: calc((100% - 1240px) / 2);
     }
 
-    @media (1440px <= width) {
-        /*width: 1440px;*/
-        padding-left: calc((100% - 1440px) / 2);
-        padding-right: calc((100% - 1440px) / 2);
+    @media (1280px <= width) {
+        /*width: 1280px;*/
+        padding-left: calc((100% - 1240px) / 2);
+        padding-right: calc((100% - 1240px) / 2);
     }
+
+    /*@media (1440px <= width) {*/
+    /*    !*width: 1440px;*!*/
+    /*    padding-left: calc((100% - 1440px) / 2);*/
+    /*    padding-right: calc((100% - 1440px) / 2);*/
+    /*}*/
 }
