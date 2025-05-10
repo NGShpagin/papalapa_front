@@ -10,8 +10,9 @@ export function MainComponent({...props}: MainComponentProps) {
                 <NavLink to={'/'} className={styles['logo']}><img
                     src="https://storage.yandexcloud.net/papalapa-storage/website/papalapa.svg"
                     alt="papalapa"/></NavLink>
-                <a className={cn(styles['button'])} href={"https://www.wildberries.ru/brands/310991209-papalapa"}>Купить
-                    на WB</a>
+                <a className={cn(styles['button'])} href={"https://www.wildberries.ru/brands/310991209-papalapa"}>
+                    Купить на WB
+                </a>
             </div>
             <div className={cn(styles["block__right"])}>
                 <div className={cn(styles["block__menu"])}>

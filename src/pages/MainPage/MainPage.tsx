@@ -9,7 +9,6 @@ import {ItemCategory} from "../../interfaces/ItemCategory";
 import {CategoriesList} from "../../components/CategoryList/CategoriesList";
 import {CheckboxCircle} from "../../components/CheckboxCircle/CheckboxCircle";
 import {ReviewList} from "../../components/ReviewList/ReviewList";
-import {Review} from "../../interfaces/Review";
 import {Footer} from "../../components/Footer/Footer";
 import {SelectItem} from "../../interfaces/SelectItem";
 import {WbItem} from "../../interfaces/WbItem.ts";
@@ -18,7 +17,6 @@ import {AboutUs} from "../../components/AboutUs/AboutUs.tsx";
 import {MainComponent} from "../../components/MainComponent/MainComponent.tsx";
 
 export function MainPage() {
-
     const [active, setActive] = useState<boolean>(false);
     const itemCard = useRef(null);
     const circleButton_1 = useRef(null);
@@ -26,16 +24,13 @@ export function MainPage() {
     const circleButton_3 = useRef(null);
     const [itemCategories, setItemCategories] = useState<ItemCategory[]>([]);
     const [catalogError, setCatalogError] = useState<string | null>(null);
-    const [reviewError, setReviewError] = useState<string | null>(null);
     const [isCategoriesLoading, setIsCategoriesLoading] = useState<boolean>(false);
-    const [isReviewsLoading, setIsReviewsLoading] = useState<boolean>(false);
-    const [reviews, setReviews] = useState<Review[]>([]);
     const [activeItem, setActiveItem] = useState<SelectItem | null>(null);
     const [isEventListenerRunning, setIsEventListenerRunning] = useState<boolean>(false);
     const isMobileDevice = useMediaQuery("(380px <= width < 768px)");
-    const isDesktop_1280 = useMediaQuery("(768px <= width < 1280px)");
-    const isDesktop_1440 = useMediaQuery("(1280px <= width < 1440px)");
-    const isDesktop_1920 = useMediaQuery("(1440px <= width)");
+    const isDesktopM = useMediaQuery("(768px <= width < 1280px)");
+    const isDesktopL = useMediaQuery("(1280px <= width)");
+
     const items: SelectItem[] = [
         {
             id: 1,
@@ -73,10 +68,7 @@ export function MainPage() {
                 setItemCategories(res.filter((item) => item.colorList && item.colorList.length > 0));
             }
         });
-        getReviews().then(res => {
-            if (res != null) setReviews(res);
-        });
-    }, [reviews.length,]);
+    }, []);
 
     const activateItem = async (id: number) => {
         const item = items.find(item => item.id === id)
@@ -122,23 +114,6 @@ export function MainPage() {
         }
     };
 
-    const getReviews = async () => {
-        try {
-            setIsReviewsLoading(true);
-            const {data} = await axios.get<Review[]>(`${PREFIX}/reviews`);
-            if (reviewError != null) setReviewError(null);
-            setIsReviewsLoading(false);
-            return data;
-        } catch (e) {
-            setIsReviewsLoading(false);
-            setReviewError("Reviews Error")
-            if (e instanceof AxiosError) {
-                return null;
-            }
-            return null;
-        }
-    };
-
     const getSelectedItem = async (filterNmId: number) => {
         try {
             const {data} = await axios.get<WbItem>(`${PREFIX}/products/wb-items?filterNmID=${filterNmId}`);
@@ -176,15 +151,15 @@ export function MainPage() {
                 {isMobileDevice && <img className={styles['select-block__image']}
                                         src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_960.jpeg'
                                         alt=""/>}
-                {isDesktop_1280 && <img className={styles['select-block__image']}
-                                        src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1280.jpeg'
-                                        alt=""/>}
-                {isDesktop_1440 && <img className={styles['select-block__image']}
-                                        src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1440.jpeg'
-                                        alt=""/>}
-                {isDesktop_1920 && <img className={styles['select-block__image']}
-                                        src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1920.jpeg'
-                                        alt=""/>}
+                {isDesktopM && <img className={styles['select-block__image']}
+                                    src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1280.jpeg'
+                                    alt=""/>}
+                {/*{isDesktop_1440 && <img className={styles['select-block__image']}*/}
+                {/*                        src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1440.jpeg'*/}
+                {/*                        alt=""/>}*/}
+                {isDesktopL && <img className={styles['select-block__image']}
+                                    src='https://storage.yandexcloud.net/papalapa-storage/website/select-block_1920.jpeg'
+                                    alt=""/>}
                 {!isMobileDevice && <CheckboxCircle ref={circleButton_1} className={cn(styles['button-1'])}
                                                     onClick={() => activateItem(1)} element={() => getEl()}/>}
                 {!isMobileDevice && <CheckboxCircle ref={circleButton_2} className={cn(styles['button-2'])}
@@ -204,31 +179,25 @@ export function MainPage() {
             <div className={cn(styles['image_block'], 'main-grid')}>
                 {isMobileDevice &&
                     <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_768.jpeg' alt=""/>}
-                {isDesktop_1280 &&
-                    <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1280.jpeg' alt=""/>}
-                {isDesktop_1440 &&
+                {isDesktopM &&
                     <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1440.jpeg' alt=""/>}
-                {isDesktop_1920 &&
+                {isDesktopL &&
                     <img src='https://storage.yandexcloud.net/papalapa-storage/website/image-block_1920.jpeg' alt=""/>}
             </div>
             <div id={'reviews'} className={cn(styles['reviews-block'], 'placeholder-glow', 'main-grid')}>
-                {isReviewsLoading && <h2 className={cn(styles['hits-text'])}>Отзывы</h2>}
-                {!isReviewsLoading ? <ReviewList reviews={reviews} header={"Отзывы"}/> :
-                    <div className="d-flex justify-content-center">
-                        <div className="spinner-border" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>}
-                {reviewError != null && <div>{reviewError}</div>}
+                <ReviewList header={"Отзывы"}/>
             </div>
             <div className={styles['pic_1']}>
-                <img className={styles['']} src="https://storage.yandexcloud.net/papalapa-storage/website/pic_1.svg" alt="pic_1"/>
+                <img className={styles['']} src="https://storage.yandexcloud.net/papalapa-storage/website/pic_1.svg"
+                     alt="pic_1"/>
             </div>
             <div className={styles['pic_2']}>
-                <img className={styles['']} src="https://storage.yandexcloud.net/papalapa-storage/website/pic_2.svg" alt="pic_2"/>
+                <img className={styles['']} src="https://storage.yandexcloud.net/papalapa-storage/website/pic_2.svg"
+                     alt="pic_2"/>
             </div>
             <div className={styles['pic_3']}>
-                <img className={styles['']} src="https://storage.yandexcloud.net/papalapa-storage/website/pic_3.svg" alt="pic_3"/>
+                <img className={styles['']} src="https://storage.yandexcloud.net/papalapa-storage/website/pic_3.svg"
+                     alt="pic_3"/>
             </div>
             <Footer/>
         </>

@@ -4,65 +4,81 @@ import {ReviewComp} from "./ReviewComp/ReviewComp";
 import {Review} from "../../interfaces/Review"
 import cn from "classnames";
 import {useEffect, useState} from "react";
-import { useMediaQuery } from "@uidotdev/usehooks";
+import axios, {AxiosError} from "axios";
+import {PaginatedItem} from "../../interfaces/PaginatedItem.ts";
+import {PREFIX} from "../../helpers/API.ts";
+import {useMediaQuery} from "@uidotdev/usehooks";
 
-export function ReviewList({header, reviews}: ReviewListProps) {
+export function ReviewList(props: ReviewListProps) {
 
-    const [currentReviews, setCurrentReviews] = useState<Review[]>([]);
-    const [reviewPage, setReviewPage] = useState<number>(1);
+    const [reviews, setReviews] = useState<Review[]>([]);
     const [maxPage, setMaxPage] = useState<number>(0);
+    const [pageSize, setPageSize] = useState<number>(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [error, setError] = useState<Error | null>(null);
     const isMobileDevice = useMediaQuery("(380px <= width < 768px)");
     const isDesktopM = useMediaQuery("(768px <= width < 1280px)");
     const isDesktopL = useMediaQuery("(1280px <= width)");
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
+        let limit: number = 0;
         if (isMobileDevice) {
-            setMaxPage(reviews.length)
-            const firstPage: Review[] = []
-            if (reviews.length > 1) firstPage.push(reviews[0])
-            setCurrentReviews(firstPage)
+            limit = changePageSize(1)
         } else if (isDesktopM) {
-            setMaxPage(reviews.length % 2 > 0 ? reviews.length / 2 + 1 : reviews.length / 2 )
-            const firstPage: Review[] = []
-            if (reviews.length > 1) firstPage.push(reviews[0])
-            if (reviews.length > 2) firstPage.push(reviews[1])
-            setCurrentReviews(firstPage)
+            limit = changePageSize(2)
         } else if (isDesktopL) {
-            setMaxPage(reviews.length % 3 > 0 ? Math.floor(reviews.length / 3) + 1 : reviews.length / 3 )
-            const firstPage: Review[] = []
-            if (reviews.length > 1) firstPage.push(reviews[0])
-            if (reviews.length > 2) firstPage.push(reviews[1])
-            if (reviews.length > 3) firstPage.push(reviews[2])
-            setCurrentReviews(firstPage)
+            limit = changePageSize(3)
         }
-    }, [isDesktopL, isDesktopM, isMobileDevice, maxPage, reviews, reviews.length]);
+        getReviewPage(1, limit).then(res => {
+            setIsLoading(false);
+            if (res != null && res.data.length > 0) {
+                setReviews(res.data);
+                setMaxPage(res.pages);
+                setCurrentPage(res.page);
+            }
+        })
+    }, [isMobileDevice, isDesktopM, isDesktopL]);
 
-    const getReviewPage = (page: number) => {
-        if (page === 0) return;
-        if (page > maxPage) return;
-        setReviewPage(page);
-        const newReviews = [];
-        if (isMobileDevice) {
-            if (reviews.length > page) newReviews.push(reviews[page-1])
-        } else if (isDesktopM) {
-            if (reviews.length > 2 * page - 1) newReviews.push(reviews[2 * page - 2])
-            if (reviews.length > 2 * page) newReviews.push(reviews[2 * page - 1])
-        } else if (isDesktopL) {
-            if (reviews.length >= 3 * page - 2) newReviews.push(reviews[3 * page - 3])
-            if (reviews.length >= 3 * page - 1) newReviews.push(reviews[3 * page - 2])
-            if (reviews.length >= 3 * page) newReviews.push(reviews[3 * page - 1])
+    const changePageSize = (pageSize: number) => {
+        setPageSize(pageSize);
+        return pageSize
+    }
+
+    const getReviewPage = async (page: number, limit: number) => {
+        setIsLoading(true);
+        try {
+            const {data} = await axios.get<PaginatedItem<Review>>(`${PREFIX}/reviews`, {
+                params: {
+                    limit: limit,
+                    page: page
+                }
+            });
+            setIsLoading(false);
+            if (error != null) setError(null);
+            return data;
+        } catch (e) {
+            setIsLoading(false);
+            setError(new Error("Error while getting review"));
+            if (e instanceof AxiosError) {
+                return null;
+            }
+            return null;
         }
-        if (newReviews.length > 0) setCurrentReviews(newReviews)
-        else return;
     }
 
     return <>
         <div className={cn(styles['reviews-block_controls'])}>
-            <h2 className={cn(styles['reviews-text'])}>{header}</h2>
+            <h2 className={cn(styles['reviews-text'])}>{props.header}</h2>
             <div className={cn(styles['reviews-arrows'])}>
                 <div className={cn(styles['arrow'], {
-                    [styles['active']]: reviewPage > 1
-                })} onClick={() => getReviewPage(reviewPage - 1)}>
+                    [styles['active']]: currentPage > 1
+                })} onClick={() => {
+                    if (currentPage > 1) getReviewPage(currentPage - 1, pageSize).then(res => {
+                        if (res != null) setReviews(res.data)
+                        setCurrentPage(currentPage - 1)
+                    })
+                }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -71,8 +87,14 @@ export function ReviewList({header, reviews}: ReviewListProps) {
                     </svg>
                 </div>
                 <div className={cn(styles['arrow'], {
-                    [styles['active']]: reviewPage < maxPage
-                })} onClick={() => getReviewPage(reviewPage + 1)}>
+                    [styles['active']]: currentPage < maxPage
+                })} onClick={() => {
+                    if (currentPage < maxPage) getReviewPage(currentPage + 1, pageSize).then(res => {
+                        if (res != null) setReviews(res.data)
+                        setCurrentPage(currentPage + 1)
+                    })
+                }
+                }>
                     <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -82,11 +104,16 @@ export function ReviewList({header, reviews}: ReviewListProps) {
                 </div>
             </div>
         </div>
-        <div className={cn(styles['wrapper'], 'placeholder-glow')}>{currentReviews.map(review => (
+        {isLoading && <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>}
+        {!isLoading && <div className={cn(styles['wrapper'], 'placeholder-glow')}>{reviews.map(review => (
                 <ReviewComp
                     key={review.id}
                     id={review.id}
-                    itemName={review.itemName}
+                    productName={review.productName}
                     rating={review.rating}
                     imageUrl={review.imageUrl}
                     content={review.content}
@@ -94,6 +121,6 @@ export function ReviewList({header, reviews}: ReviewListProps) {
                 </ReviewComp>
             )
         )}
-        </div>
+        </div>}
     </>
 }

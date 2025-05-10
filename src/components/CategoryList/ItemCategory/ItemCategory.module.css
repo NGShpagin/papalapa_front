@@ -30,6 +30,7 @@
 
 .image-box:hover .button-el {
     display: flex;
+    transition-duration: 3s;
 }
 
 .button-el {

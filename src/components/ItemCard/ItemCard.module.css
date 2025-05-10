@@ -5,8 +5,9 @@
     width: 295px;
     height: 480px;
     padding: 20px;
-    background-color: var(--main-white);
+    background-color: #F5F4F2;
     align-items: center;
+    border-radius: 20px;
 }
 
 
@@ -20,6 +21,7 @@
 
 .image {
     height: 297px;
+    border-radius: 20px;
 }
 
 .title {

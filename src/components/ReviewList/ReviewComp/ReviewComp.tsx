@@ -27,7 +27,7 @@ export function ReviewComp(props: ReviewCompProps) {
                         </div>
                         <div className={styles['item']}>
                             <p className={cn(styles['item-title'], 'main-text')}>Товар:</p>
-                            <p className={cn(styles['item-name'], 'main-text')}>{props.itemName}</p>
+                            <p className={cn(styles['item-name'], 'main-text')}>{props.productName}</p>
                         </div>
                     </div>
                     <div id={'rating'} className={styles['rating']}>{ratingStars}</div>
